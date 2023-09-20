@@ -14,9 +14,49 @@ namespace Forms1_
 {
     public partial class Form1 : Form
     {
+        private int id;
         public Form1()
         {
             InitializeComponent();
+        }
+        private void UpdateListView()
+        {
+            connection conn = new connection();
+            SqlCommand sqlCom = new SqlCommand();
+
+            sqlCom.Connection = conn.ReturnConnection();
+            sqlCom.CommandText = "SELECT * FROM login";
+
+            try
+            {
+                SqlDataReader dr = sqlCom.ExecuteReader();
+
+                //Enquanto for possível continuar a leitura das linhas que foram retornadas na consulta, execute.
+                while (dr.Read())
+                {
+
+                    string name = (string)dr["email"];
+
+                    string pass = (string)dr["senha"];
+
+                    ListViewItem lv = new ListViewItem(dr["id"].ToString());
+
+                    lv.SubItems.Add(name);
+                    lv.SubItems.Add(pass);
+                    listView1.Items.Add(lv);
+
+                }
+                dr.Close();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+            finally
+            {
+                conn.CloseConnection();
+            }
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -42,12 +82,7 @@ namespace Forms1_
                 "Atenção",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
-            textBox1.Clear();
-            textBox2.Clear();
-
-
-
-
+            
 
             connection conexao1 = new connection();
             SqlCommand sqlCommand = new SqlCommand();
@@ -68,10 +103,54 @@ namespace Forms1_
             textBox1.Clear();
             textBox2.Clear();
 
+            UpdateListView();
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            connection conexao1 = new connection();
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.Connection = conexao1.ReturnConnection();
+            sqlCommand.CommandText = @"UPDATE login SET
+            email = @email,
+            senha = @senha,
+            id = @id,
+            WHERE id = @id "
+;
+        }
+
+        private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int index;
+
+            index = listView1.FocusedItem.Index;
+            id = int.Parse(listView1.Items[index].SubItems[0].Text);
+            textBox1.Text = listView1.Items[index].SubItems[1].Text;
+            textBox2.Text = listView1.Items[index].SubItems[2].Text;
+            
 
         }
     }
