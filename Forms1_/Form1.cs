@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,7 @@ namespace Forms1_
         }
         private void UpdateListView()
         {
+           listView1.Items.Clear(); 
             connection conn = new connection();
             SqlCommand sqlCom = new SqlCommand();
 
@@ -34,12 +36,11 @@ namespace Forms1_
                 //Enquanto for possível continuar a leitura das linhas que foram retornadas na consulta, execute.
                 while (dr.Read())
                 {
-
+                    id = (int)dr["id"];
                     string name = (string)dr["email"];
-
                     string pass = (string)dr["senha"];
 
-                    ListViewItem lv = new ListViewItem(dr["id"].ToString());
+                    ListViewItem lv = new ListViewItem(id.ToString());
 
                     lv.SubItems.Add(name);
                     lv.SubItems.Add(pass);
