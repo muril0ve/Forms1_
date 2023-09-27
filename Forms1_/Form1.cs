@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,7 @@ namespace Forms1_
         }
         private void UpdateListView()
         {
+           listView1.Items.Clear(); 
             connection conn = new connection();
             SqlCommand sqlCom = new SqlCommand();
 
@@ -34,12 +36,11 @@ namespace Forms1_
                 //Enquanto for possível continuar a leitura das linhas que foram retornadas na consulta, execute.
                 while (dr.Read())
                 {
-
+                    id = (int)dr["id"];
                     string name = (string)dr["email"];
-
                     string pass = (string)dr["senha"];
 
-                    ListViewItem lv = new ListViewItem(dr["id"].ToString());
+                    ListViewItem lv = new ListViewItem(id.ToString());
 
                     lv.SubItems.Add(name);
                     lv.SubItems.Add(pass);
@@ -144,54 +145,30 @@ namespace Forms1_
 
         private void button2_Click(object sender, EventArgs e)
         {
-            connection conexao1 = new connection();
-            SqlCommand sqlCommand = new SqlCommand();
-            sqlCommand.Connection = conexao1.ReturnConnection();
-            sqlCommand.CommandText = @"UPDATE login SET
-            email = @email,
-            senha = @senha
-            WHERE id = @id";
-            sqlCommand.Parameters.AddWithValue("@id", id);
-            sqlCommand.Parameters.AddWithValue("@email", textBox1.Text);
-            sqlCommand.Parameters.AddWithValue("@senha", textBox2.Text);  
-
-            sqlCommand.ExecuteNonQuery();
-
-            MessageBox.Show("Cadastrado com sucesso",
-            "AVISO",
-            MessageBoxButtons.OK,
-            MessageBoxIcon.Information);
-
-            
+            UserDAO nomeDoObj = new UserDAO();
+            nomeDoObj.DeleteUser(id);
             textBox1.Clear();
             textBox2.Clear();
 
             UpdateListView();
+            MessageBox.Show("Atualizado com sucesso",
+           "AVISO",
+           MessageBoxButtons.OK,
+           MessageBoxIcon.Information);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            connection conexao1 = new connection();
-            SqlCommand sqlCommand = new SqlCommand();
-            sqlCommand.Connection = conexao1.ReturnConnection();
-            sqlCommand.CommandText = @"DELETE FROM login WHERE id = @id";
-            sqlCommand.Parameters.AddWithValue("@id", id);
-            try
-            {
-                sqlCommand.ExecuteNonQuery();
-            }
-            catch (Exception err)
-            {
-                throw new Exception("Erro: Problemas ao excluir usuário no banco.\n" + err.Message);
-            }
-            finally
-            {
-               conexao1.CloseConnection();
-            }
+           UserDAO nomeDoObj = new UserDAO();
+            nomeDoObj.DeleteUser(id);
             textBox1.Clear();
             textBox2.Clear();
 
             UpdateListView();
+            MessageBox.Show("Excluido com sucesso",
+           "AVISO",
+           MessageBoxButtons.OK,
+           MessageBoxIcon.Information);
         }
 
         private void Form1_Load(object sender, EventArgs e)
