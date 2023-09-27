@@ -136,10 +136,20 @@ namespace Forms1_
             sqlCommand.Connection = conexao1.ReturnConnection();
             sqlCommand.CommandText = @"UPDATE login SET
             email = @email,
-            senha = @senha,
-            id = @id,
-            WHERE id = @id "
-;
+            senha = @senha
+            WHERE id = @id ";
+            sqlCommand.Parameters.AddWithValue("@email", textBox1.Text);
+            sqlCommand.Parameters.AddWithValue("@senha", textBox2.Text);
+            sqlCommand.Parameters.AddWithValue("@id",id);
+
+            MessageBox.Show("Cadastrado com sucesso",
+            "AVISO",
+            MessageBoxButtons.OK,
+             MessageBoxIcon.Information);
+
+            sqlCommand.ExecuteNonQuery();
+
+            UpdateListView();
         }
 
         private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -157,3 +167,5 @@ namespace Forms1_
 
     
 }
+
+
