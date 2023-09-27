@@ -56,7 +56,8 @@ namespace Forms1_
             {
                 conn.CloseConnection();
             }
-
+            
+            
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -68,6 +69,8 @@ namespace Forms1_
         {
 
         }
+
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -89,6 +92,8 @@ namespace Forms1_
             sqlCommand.Connection = conexao1.ReturnConnection();
             sqlCommand.CommandText = @"INSERT INTO login VALUES
             (@email, @senha)";
+
+            sqlCommand.Parameters.AddWithValue("@id", id);
             sqlCommand.Parameters.AddWithValue("@email", textBox1.Text);
             sqlCommand.Parameters.AddWithValue("@senha", textBox2.Text);
             sqlCommand.ExecuteNonQuery();
@@ -107,11 +112,7 @@ namespace Forms1_
 
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-
-        }
+        
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -129,28 +130,7 @@ namespace Forms1_
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            connection conexao1 = new connection();
-            SqlCommand sqlCommand = new SqlCommand();
-            sqlCommand.Connection = conexao1.ReturnConnection();
-            sqlCommand.CommandText = @"UPDATE login SET
-            email = @email,
-            senha = @senha
-            WHERE id = @id ";
-            sqlCommand.Parameters.AddWithValue("@email", textBox1.Text);
-            sqlCommand.Parameters.AddWithValue("@senha", textBox2.Text);
-            sqlCommand.Parameters.AddWithValue("@id",id);
-
-            MessageBox.Show("Cadastrado com sucesso",
-            "AVISO",
-            MessageBoxButtons.OK,
-             MessageBoxIcon.Information);
-
-            sqlCommand.ExecuteNonQuery();
-
-            UpdateListView();
-        }
+        
 
         private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
@@ -160,12 +140,65 @@ namespace Forms1_
             id = int.Parse(listView1.Items[index].SubItems[0].Text);
             textBox1.Text = listView1.Items[index].SubItems[1].Text;
             textBox2.Text = listView1.Items[index].SubItems[2].Text;
-            
+        }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            connection conexao1 = new connection();
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.Connection = conexao1.ReturnConnection();
+            sqlCommand.CommandText = @"UPDATE login SET
+            email = @email,
+            senha = @senha
+            WHERE id = @id";
+            sqlCommand.Parameters.AddWithValue("@id", id);
+            sqlCommand.Parameters.AddWithValue("@email", textBox1.Text);
+            sqlCommand.Parameters.AddWithValue("@senha", textBox2.Text);  
+
+            sqlCommand.ExecuteNonQuery();
+
+            MessageBox.Show("Cadastrado com sucesso",
+            "AVISO",
+            MessageBoxButtons.OK,
+            MessageBoxIcon.Information);
+
+            
+            textBox1.Clear();
+            textBox2.Clear();
+
+            UpdateListView();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            connection conexao1 = new connection();
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.Connection = conexao1.ReturnConnection();
+            sqlCommand.CommandText = @"DELETE FROM login WHERE id = @id";
+            sqlCommand.Parameters.AddWithValue("@id", id);
+            try
+            {
+                sqlCommand.ExecuteNonQuery();
+            }
+            catch (Exception err)
+            {
+                throw new Exception("Erro: Problemas ao excluir usuário no banco.\n" + err.Message);
+            }
+            finally
+            {
+               conexao1.CloseConnection();
+            }
+            textBox1.Clear();
+            textBox2.Clear();
+
+            UpdateListView();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            UpdateListView();
         }
     }
-
-    
 }
 
 
