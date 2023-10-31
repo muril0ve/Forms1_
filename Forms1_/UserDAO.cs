@@ -13,7 +13,7 @@ namespace Forms1_
 {
     internal class UserDAO
     {
-        public void InsertUser(int id)
+        public void InsertUser(User user)
         {
             
 
@@ -25,9 +25,9 @@ namespace Forms1_
             (@email, @senha)"
             ;
 
-            sqlCommand.Parameters.AddWithValue("@id", id);
-            sqlCommand.Parameters.AddWithValue("@email", textBox1.Text);
-            sqlCommand.Parameters.AddWithValue("@senha", textBox2.Text);
+           
+            sqlCommand.Parameters.AddWithValue("@email", user.Email);
+            sqlCommand.Parameters.AddWithValue("@senha", user.Senha);
             sqlCommand.ExecuteNonQuery();
 
            
@@ -37,7 +37,7 @@ namespace Forms1_
             connection conexao1 = new connection();
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand.Connection = conexao1.ReturnConnection();
-            sqlCommand.CommandText = @"DELETE FROM login WHERE id = @id";
+            sqlCommand.CommandText = @"DELETE FROM login WHERE Id = @id";
             sqlCommand.Parameters.AddWithValue("@id", id);
             try
             {
@@ -53,7 +53,7 @@ namespace Forms1_
             }
             
         }
-        public void UpdateUser(int id, string textBox1,string textBox2)
+        public void UpdateUser(User user)
         {
             connection conexao1 = new connection();
             SqlCommand sqlCommand = new SqlCommand();
@@ -61,10 +61,10 @@ namespace Forms1_
             sqlCommand.CommandText = @"UPDATE login SET
             email = @email,
             senha = @senha
-            WHERE id = @id";
-            sqlCommand.Parameters.AddWithValue("@id", id);
-            sqlCommand.Parameters.AddWithValue("@email", textBox1);
-            sqlCommand.Parameters.AddWithValue("@senha", textBox2);
+            WHERE Id = @id";
+            sqlCommand.Parameters.AddWithValue("@id", user.Id);
+            sqlCommand.Parameters.AddWithValue("@email", user.Email);
+            sqlCommand.Parameters.AddWithValue("@senha", user.Senha);
 
             sqlCommand.ExecuteNonQuery();
 
@@ -80,7 +80,7 @@ namespace Forms1_
             SqlCommand sqlCommand = new SqlCommand();
 
             sqlCommand.Connection = conexao1.ReturnConnection();
-            sqlCommand.CommandText = "SELECT * FROM usuario";
+            sqlCommand.CommandText = "SELECT * FROM login";
 
             
            List<User> users = new List<User>();
@@ -90,13 +90,15 @@ namespace Forms1_
                 while (dr.Read())
                 {
                     User objeto = new User(
-                    (int)dr["id"],
+                    
                     (string)dr["email"],
-                    (string)dr["senha"]
+                    (string)dr["senha"],
+                    (int)dr["Id"]
                        );
-                    dr.Close();
+                    users.Add(objeto);
+                    
                 }
-
+                dr.Close();
             }
             catch (Exception err)
             {

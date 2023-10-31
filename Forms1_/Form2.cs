@@ -16,5 +16,10 @@ namespace Forms1_
         {
             InitializeComponent();
         }
+
+        private void pictureBox5_DoubleClick(object sender, EventArgs e)
+        {
+
+        }
     }
 }

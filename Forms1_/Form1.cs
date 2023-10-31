@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Forms1_
 {
@@ -23,45 +24,28 @@ namespace Forms1_
         private void UpdateListView()
         {
            listView1.Items.Clear(); 
-            connection conn = new connection();
-            SqlCommand sqlCom = new SqlCommand();
-
-            sqlCom.Connection = conn.ReturnConnection();
-            sqlCom.CommandText = "SELECT * FROM login";
+            
 
             UserDAO userDAO = new UserDAO();
             List<User> users = userDAO.SelectUser();
+            if (users.Count == 0)
+                MessageBox.Show("");
             try
             {
                 foreach (User user in users)
                 {
-                    ListViewItem lv = new ListViewItem(user.);
-                }
-                SqlDataReader dr = sqlCom.ExecuteReader();
-
-                //Enquanto for possível continuar a leitura das linhas que foram retornadas na consulta, execute.
-                while (dr.Read())
-                {
-                    
-                    string name = (string)dr["email"];
-                    string pass = (string)dr["senha"];
-
-                    ListViewItem lv = new ListViewItem(dr["id"].ToString());
-
-                    lv.SubItems.Add(name);
-                    lv.SubItems.Add(pass);
+                    ListViewItem lv = new ListViewItem(user.Id.ToString());
+                    lv.SubItems.Add(user.Email);
+                    lv.SubItems.Add(user.Senha);
                     listView1.Items.Add(lv);
-
                 }
-                dr.Close();
+                
+
+                
             }
             catch (Exception err)
             {
                 MessageBox.Show(err.Message);
-            }
-            finally
-            {
-                conn.CloseConnection();
             }
             
             
@@ -81,9 +65,9 @@ namespace Forms1_
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
+            User user = new User(textBox1.Text, textBox2.Text);
             UserDAO nomeDoObj = new UserDAO();
-            nomeDoObj.InsertUser(id, textBox1.Text, textBox2.Text);
+            nomeDoObj.InsertUser(user);
 
             textBox1.Clear();
             textBox2.Clear();
@@ -126,7 +110,7 @@ namespace Forms1_
         {
            
             UserDAO nomeDoObj = new UserDAO();
-            nomeDoObj.InsertUser(id);
+            nomeDoObj.UpdateUser(id);
             textBox1.Clear();
             textBox2.Clear();
 

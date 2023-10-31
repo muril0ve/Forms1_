@@ -11,14 +11,17 @@ namespace Forms1_
         private int _id;
         private string _email;
         private string _senha;
-        private string text1;
-        private string text2;
+      
 
         
-        public User(string email, string senha, int id)
+        public User(string email, string senha)
         {
             Email = email;
             Senha = senha;
+            
+        } public User(string email, string senha, int id):this(email,senha)
+        {
+            
             Id = id;
         }
 

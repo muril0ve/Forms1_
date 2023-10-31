@@ -123,6 +123,7 @@
             this.pictureBox5.Size = new System.Drawing.Size(58, 36);
             this.pictureBox5.TabIndex = 6;
             this.pictureBox5.TabStop = false;
+            this.pictureBox5.DoubleClick += new System.EventHandler(this.pictureBox5_DoubleClick);
             // 
             // pictureBox6
             // 
