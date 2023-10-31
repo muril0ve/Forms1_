@@ -75,6 +75,7 @@ namespace Forms1_
 
         private void button1_Click(object sender, EventArgs e)
         {
+            User user = new User(textBox1.Text, textBox2.Text);
 
             string name = textBox1.Text;
             string enrollment = textBox2.Text;
