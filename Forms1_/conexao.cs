@@ -13,7 +13,7 @@ namespace InvestimentosMais
     {
         //Propriedades ou atributos
         private readonly SqlConnection con;
-        private readonly string DataBase = "teste1";
+        private readonly string DataBase = "PR2";
 
         //Construtor
         public connection()                            //LAPTOP-9TN8R1CF\SQLEXPRESS

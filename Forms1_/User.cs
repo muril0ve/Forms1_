@@ -8,11 +8,14 @@ namespace Forms1_
 {
     internal class User
     {
-        private string _id;
+        private int _id;
         private string _email;
         private string _senha;
+        private string text1;
+        private string text2;
 
-        public User(string email, string senha, string id)
+        
+        public User(string email, string senha, int id)
         {
             Email = email;
             Senha = senha;
@@ -21,16 +24,29 @@ namespace Forms1_
 
         public string Email
         {
-            set { Email = value; }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                    throw new Exception("campo email esta vazio");
+                _email = value;
+               
+            }
+            
             get { return _email; }
         }
 
         public string Senha
         {
-            set { Senha = value; }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                    throw new Exception("campo senha esta vazio");
+                _senha = value;
+
+            }
             get { return _senha; }
         }
-        public string Id
+        public int Id
         {
             set { _id = value; }
             get { return _id; }

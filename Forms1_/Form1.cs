@@ -29,18 +29,24 @@ namespace Forms1_
             sqlCom.Connection = conn.ReturnConnection();
             sqlCom.CommandText = "SELECT * FROM login";
 
+            UserDAO userDAO = new UserDAO();
+            List<User> users = userDAO.SelectUser();
             try
             {
+                foreach (User user in users)
+                {
+                    ListViewItem lv = new ListViewItem(user.);
+                }
                 SqlDataReader dr = sqlCom.ExecuteReader();
 
                 //Enquanto for possível continuar a leitura das linhas que foram retornadas na consulta, execute.
                 while (dr.Read())
                 {
-                    id = (int)dr["id"];
+                    
                     string name = (string)dr["email"];
                     string pass = (string)dr["senha"];
 
-                    ListViewItem lv = new ListViewItem(id.ToString());
+                    ListViewItem lv = new ListViewItem(dr["id"].ToString());
 
                     lv.SubItems.Add(name);
                     lv.SubItems.Add(pass);
@@ -75,42 +81,14 @@ namespace Forms1_
 
         private void button1_Click(object sender, EventArgs e)
         {
-            User user = new User(textBox1.Text, textBox2.Text);
-
-            string name = textBox1.Text;
-            string enrollment = textBox2.Text;
-
-            string message = "Login: " + name +
-                             "\nSenha: " + enrollment;
-            MessageBox.Show(
-                message,
-                "Atenção",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
-            
-
-            connection conexao1 = new connection();
-            SqlCommand sqlCommand = new SqlCommand();
-            sqlCommand.Connection = conexao1.ReturnConnection();
-            sqlCommand.CommandText = @"INSERT INTO login VALUES
-            (@email, @senha)";
-
-            sqlCommand.Parameters.AddWithValue("@id", id);
-            sqlCommand.Parameters.AddWithValue("@email", textBox1.Text);
-            sqlCommand.Parameters.AddWithValue("@senha", textBox2.Text);
-            sqlCommand.ExecuteNonQuery();
-
-            MessageBox.Show(
-                "Login realizado com sucesso !",
-                "AVISO",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information
-                );
+           
+            UserDAO nomeDoObj = new UserDAO();
+            nomeDoObj.InsertUser(id, textBox1.Text, textBox2.Text);
 
             textBox1.Clear();
             textBox2.Clear();
 
-            UpdateListView();
+            UpdateListView();   
 
         }
 
@@ -146,8 +124,9 @@ namespace Forms1_
 
         private void button2_Click(object sender, EventArgs e)
         {
+           
             UserDAO nomeDoObj = new UserDAO();
-            nomeDoObj.DeleteUser(id);
+            nomeDoObj.InsertUser(id);
             textBox1.Clear();
             textBox2.Clear();
 
