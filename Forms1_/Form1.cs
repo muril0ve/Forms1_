@@ -108,17 +108,25 @@ namespace Forms1_
 
         private void button2_Click(object sender, EventArgs e)
         {
-           
-            UserDAO nomeDoObj = new UserDAO();
-            nomeDoObj.UpdateUser(id);
-            textBox1.Clear();
-            textBox2.Clear();
+            try
+            {
+                User user = new User(id, textBox1.Text, textBox2.Text);
 
-            UpdateListView();
-            MessageBox.Show("Atualizado com sucesso",
-           "AVISO",
-           MessageBoxButtons.OK,
-           MessageBoxIcon.Information);
+                UserDAO nomeDoObj = new UserDAO();
+                nomeDoObj.UpdateUser(id, user);
+                textBox1.Clear();
+                textBox2.Clear();
+
+                UpdateListView();
+                MessageBox.Show("Atualizado com sucesso",
+               "AVISO",
+               MessageBoxButtons.OK,
+               MessageBoxIcon.Information);
+            }
+            catch(Exception error)
+            {
+                MessageBox.Show(error.Message);
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)

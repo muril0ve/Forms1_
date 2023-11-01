@@ -53,8 +53,9 @@ namespace Forms1_
             }
             
         }
-        public void UpdateUser(User user)
+        public void UpdateUser(User user, int Id)
         {
+           
             connection conexao1 = new connection();
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand.Connection = conexao1.ReturnConnection();
@@ -113,5 +114,7 @@ namespace Forms1_
             return users;
 
         }
+
+        
     }
 }
