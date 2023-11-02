@@ -110,15 +110,15 @@ namespace Forms1_
         {
             try
             {
-                User user = new User(id, textBox1.Text, textBox2.Text);
+                User user = new User(textBox1.Text, textBox2.Text);
 
                 UserDAO nomeDoObj = new UserDAO();
-                nomeDoObj.UpdateUser(id, user);
+                nomeDoObj.UpdateUser(user, id);
                 textBox1.Clear();
                 textBox2.Clear();
 
-                UpdateListView();
-                MessageBox.Show("Atualizado com sucesso",
+               UpdateListView();
+               MessageBox.Show("Atualizado com sucesso",
                "AVISO",
                MessageBoxButtons.OK,
                MessageBoxIcon.Information);
@@ -127,6 +127,7 @@ namespace Forms1_
             {
                 MessageBox.Show(error.Message);
             }
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
