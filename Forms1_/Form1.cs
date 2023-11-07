@@ -35,9 +35,9 @@ namespace Forms1_
                 foreach (User user in users)
                 {
                     ListViewItem lv = new ListViewItem(user.Id.ToString());
-                    lv.SubItems.Add(user.Senha);
                     lv.SubItems.Add(user.Email);
-                    
+                    lv.SubItems.Add(user.Senha);
+                  
                     listView1.Items.Add(lv);
                 }
                 
