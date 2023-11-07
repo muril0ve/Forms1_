@@ -16,7 +16,7 @@ namespace Forms1_
 {
     public partial class Form1 : Form
     {
-        private int id;
+        private int Id;
         public Form1()
         {
             InitializeComponent();
@@ -35,8 +35,9 @@ namespace Forms1_
                 foreach (User user in users)
                 {
                     ListViewItem lv = new ListViewItem(user.Id.ToString());
-                    lv.SubItems.Add(user.Email);
                     lv.SubItems.Add(user.Senha);
+                    lv.SubItems.Add(user.Email);
+                    
                     listView1.Items.Add(lv);
                 }
                 
@@ -101,19 +102,17 @@ namespace Forms1_
             int index;
 
             index = listView1.FocusedItem.Index;
-            id = int.Parse(listView1.Items[index].SubItems[0].Text);
+            Id = int.Parse(listView1.Items[index].SubItems[0].Text);
             textBox1.Text = listView1.Items[index].SubItems[1].Text;
             textBox2.Text = listView1.Items[index].SubItems[2].Text;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            try
-            {
-                User user = new User(id, textBox1.Text, textBox2.Text);
-
+            
+                User user = new User( textBox1.Text, textBox2.Text, Id);
                 UserDAO nomeDoObj = new UserDAO();
-                nomeDoObj.UpdateUser(id, user);
+                nomeDoObj.UpdateUser(user);
                 textBox1.Clear();
                 textBox2.Clear();
 
@@ -122,17 +121,13 @@ namespace Forms1_
                "AVISO",
                MessageBoxButtons.OK,
                MessageBoxIcon.Information);
-            }
-            catch(Exception error)
-            {
-                MessageBox.Show(error.Message);
-            }
+           
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
            UserDAO nomeDoObj = new UserDAO();
-            nomeDoObj.DeleteUser(id);
+            nomeDoObj.DeleteUser(Id);
             textBox1.Clear();
             textBox2.Clear();
 

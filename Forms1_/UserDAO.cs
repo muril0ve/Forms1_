@@ -32,13 +32,13 @@ namespace Forms1_
 
            
         }
-        public void DeleteUser(int id)
+        public void DeleteUser(int Id)
         {
             connection conexao1 = new connection();
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand.Connection = conexao1.ReturnConnection();
             sqlCommand.CommandText = @"DELETE FROM login WHERE Id = @id";
-            sqlCommand.Parameters.AddWithValue("@id", id);
+            sqlCommand.Parameters.AddWithValue("@id", Id);
             try
             {
                 sqlCommand.ExecuteNonQuery();
@@ -53,7 +53,7 @@ namespace Forms1_
             }
             
         }
-        public void UpdateUser(User user, int Id)
+        public void UpdateUser(User user)
         {
            
             connection conexao1 = new connection();
