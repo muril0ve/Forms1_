@@ -20,37 +20,9 @@ namespace Forms1_
         public Form1()
         {
             InitializeComponent();
-        }
-        private void UpdateListView()
-        {
-           listView1.Items.Clear(); 
-            
-
-            UserDAO userDAO = new UserDAO();
-            List<User> users = userDAO.SelectUser();
-            if (users.Count == 0)
-                MessageBox.Show("");
-            try
-            {
-                foreach (User user in users)
-                {
-                    ListViewItem lv = new ListViewItem(user.Id.ToString());
-                    lv.SubItems.Add(user.Email);
-                    lv.SubItems.Add(user.Senha);
-                  
-                    listView1.Items.Add(lv);
-                }
-                
-
-                
-            }
-            catch (Exception err)
-            {
-                MessageBox.Show(err.Message);
-            }
-            
             
         }
+        
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -66,14 +38,7 @@ namespace Forms1_
 
         private void button1_Click(object sender, EventArgs e)
         {
-            User user = new User(textBox1.Text, textBox2.Text);
-            UserDAO nomeDoObj = new UserDAO();
-            nomeDoObj.InsertUser(user);
-
-            textBox1.Clear();
-            textBox2.Clear();
-
-            UpdateListView();   
+              
 
         }
 
@@ -97,50 +62,27 @@ namespace Forms1_
 
         
 
-        private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            int index;
+        
 
-            index = listView1.FocusedItem.Index;
-            Id = int.Parse(listView1.Items[index].SubItems[0].Text);
-            textBox1.Text = listView1.Items[index].SubItems[1].Text;
-            textBox2.Text = listView1.Items[index].SubItems[2].Text;
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            
-                User user = new User( textBox1.Text, textBox2.Text, Id);
-                UserDAO nomeDoObj = new UserDAO();
-                nomeDoObj.UpdateUser(user);
-                textBox1.Clear();
-                textBox2.Clear();
-
-                UpdateListView();
-                MessageBox.Show("Atualizado com sucesso",
-               "AVISO",
-               MessageBoxButtons.OK,
-               MessageBoxIcon.Information);
-           
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-           UserDAO nomeDoObj = new UserDAO();
-            nomeDoObj.DeleteUser(Id);
-            textBox1.Clear();
-            textBox2.Clear();
-
-            UpdateListView();
-            MessageBox.Show("Excluido com sucesso",
-           "AVISO",
-           MessageBoxButtons.OK,
-           MessageBoxIcon.Information);
-        }
+        
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            UpdateListView();
+            
+           
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Form3 form = new Form3();
+            form.ShowDialog();
+
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Form4 form = new Form4();
+            form.ShowDialog();
         }
     }
 }

@@ -12,6 +12,7 @@ namespace Forms1_
 {
     public partial class Form3 : Form
     {
+        private int Id;
         public Form3()
         {
             InitializeComponent();
@@ -25,6 +26,69 @@ namespace Forms1_
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            User user = new User(Id, email.Text, senha.Text, cpf.Text, nome.Text);
+            UserDAO nomeDoObj = new UserDAO();
+            nomeDoObj.InsertUser(user);
+
+            string aemail = email.Text;
+            string asenha = senha.Text;
+            string acpf = cpf.Text;
+            string anome = nome.Text;
+
+            string message = "Email: " + aemail +
+                         "\nSenha: " + asenha +
+                         "\nCPF: " + acpf +
+                         "\nNome: " + anome;
+
+            MessageBox.Show(
+                message,
+                "ATENÇÃO",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+
+            MessageBox.Show(
+                "Conta criada com sucesso!!",
+                "ATENÇÃO",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+
+            email.Clear();
+            cpf.Clear();
+            senha.Clear();
+            nome.Clear();
+            confsenha.Clear();
+
+
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

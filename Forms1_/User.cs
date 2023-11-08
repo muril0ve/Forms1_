@@ -11,18 +11,28 @@ namespace Forms1_
         private int _id;
         private string _email;
         private string _senha;
-      
+        private string _cpf;
+        private string _nome;
+        private string text1;
+        private string text2;
+        private string text3;
+        private string text4;
 
-        
-        public User(string email, string senha)
+        public User(string text1, string text2, string text3, string text4)
         {
+            this.text1 = text1;
+            this.text2 = text2;
+            this.text3 = text3;
+            this.text4 = text4;
+        }
+
+        public User(int id, string email, string senha, string cpf, string nome)
+        {
+            Id = id;
             Email = email;
             Senha = senha;
-            
-        } public User(string email, string senha, int id):this(email,senha)
-        {
-            
-            Id = id;
+            Cpf = cpf;
+            Nome = nome;
         }
 
         public string Email
@@ -54,5 +64,31 @@ namespace Forms1_
             set { _id = value; }
             get { return _id; }
         }
+        public string Cpf
+        {
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                    throw new Exception("campo senha esta vazio");
+                _cpf = value;
+
+            }
+            get { return _cpf; }
+
+        } 
+        public string Nome
+        {
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                    throw new Exception("campo senha esta vazio");
+                _nome = value;
+
+            }
+            get { return _nome; }
+
+        }
+
+        
     }
 }
