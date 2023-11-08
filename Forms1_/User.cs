@@ -25,6 +25,10 @@ namespace Forms1_
             this.text3 = text3;
             this.text4 = text4;
         }
+        public User()
+        {
+
+        }
 
         public User(int id, string email, string senha, string cpf, string nome)
         {

@@ -26,13 +26,13 @@ namespace Forms1_
 
             UserDAO userDAO = new UserDAO();
             List<User> users = userDAO.SelectUser();
-            if (users.Count == 0)
-                MessageBox.Show("");
+            
             try
             {
                 foreach (User user in users)
                 {
                     ListViewItem lv = new ListViewItem(user.Id.ToString());
+
                     lv.SubItems.Add(user.Cpf);
                     lv.SubItems.Add(user.Senha);
                     lv.SubItems.Add(user.Nome);

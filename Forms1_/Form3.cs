@@ -60,12 +60,6 @@ namespace Forms1_
                          "\nNome: " + anome;
 
             MessageBox.Show(
-                message,
-                "ATENÇÃO",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
-
-            MessageBox.Show(
                 "Conta criada com sucesso!!",
                 "ATENÇÃO",
                 MessageBoxButtons.OK,

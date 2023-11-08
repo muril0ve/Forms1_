@@ -32,8 +32,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.email = new System.Windows.Forms.TextBox();
-            this.senha = new System.Windows.Forms.TextBox();
+            this.E_mail = new System.Windows.Forms.TextBox();
+            this.S_enha = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
@@ -73,22 +73,22 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // email
+            // E_mail
             // 
-            this.email.Location = new System.Drawing.Point(340, 144);
-            this.email.Name = "email";
-            this.email.Size = new System.Drawing.Size(106, 20);
-            this.email.TabIndex = 3;
-            this.email.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.E_mail.Location = new System.Drawing.Point(340, 144);
+            this.E_mail.Name = "E_mail";
+            this.E_mail.Size = new System.Drawing.Size(106, 20);
+            this.E_mail.TabIndex = 3;
+            this.E_mail.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // senha
+            // S_enha
             // 
-            this.senha.Location = new System.Drawing.Point(340, 197);
-            this.senha.Name = "senha";
-            this.senha.PasswordChar = '♥';
-            this.senha.Size = new System.Drawing.Size(106, 20);
-            this.senha.TabIndex = 4;
-            this.senha.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.S_enha.Location = new System.Drawing.Point(340, 197);
+            this.S_enha.Name = "S_enha";
+            this.S_enha.PasswordChar = '♥';
+            this.S_enha.Size = new System.Drawing.Size(106, 20);
+            this.S_enha.TabIndex = 4;
+            this.S_enha.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // button1
             // 
@@ -136,8 +136,8 @@
             this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.senha);
-            this.Controls.Add(this.email);
+            this.Controls.Add(this.S_enha);
+            this.Controls.Add(this.E_mail);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -157,8 +157,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox email;
-        private System.Windows.Forms.TextBox senha;
+        private System.Windows.Forms.TextBox E_mail;
+        private System.Windows.Forms.TextBox S_enha;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.LinkLabel linkLabel2;

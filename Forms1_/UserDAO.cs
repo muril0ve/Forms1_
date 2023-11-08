@@ -24,8 +24,9 @@ namespace Forms1_
 
             sqlCommand.Parameters.AddWithValue("@email", user.Email);
             sqlCommand.Parameters.AddWithValue("@senha", user.Senha);
-            sqlCommand.Parameters.AddWithValue("@cpf", user.Cpf);
             sqlCommand.Parameters.AddWithValue("@nome", user.Nome);
+            sqlCommand.Parameters.AddWithValue("@cpf", user.Cpf);
+            
             sqlCommand.ExecuteNonQuery();
         }
         public void DeleteUser(int Id)
@@ -58,14 +59,15 @@ namespace Forms1_
             sqlCommand.CommandText = @"UPDATE login SET
             email = @email,
             senha = @senha,
-            cpf = @cpf,
-            nome = @cpf
+            nome = @nome,
+            cpf = @cpf, 
             WHERE Id = @id";
             sqlCommand.Parameters.AddWithValue("@id", user.Id);
             sqlCommand.Parameters.AddWithValue("@email", user.Email);
             sqlCommand.Parameters.AddWithValue("@senha", user.Senha);
-            sqlCommand.Parameters.AddWithValue("@cpf", user.Cpf);
             sqlCommand.Parameters.AddWithValue("@nome", user.Nome);
+            sqlCommand.Parameters.AddWithValue("@cpf", user.Cpf);
+            
 
             sqlCommand.ExecuteNonQuery();
 

@@ -34,8 +34,10 @@
             this.button2 = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label3 = new System.Windows.Forms.Label();
             this.email = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,8 +46,6 @@
             this.senha = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.nome = new System.Windows.Forms.TextBox();
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -111,14 +111,22 @@
             this.columnHeader4.Text = "Id";
             this.columnHeader4.Width = 0;
             // 
-            // columnHeader1
+            // columnHeader5
             // 
-            this.columnHeader1.Text = "Email";
+            this.columnHeader5.Text = "Nome";
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Senha";
             this.columnHeader2.Width = 0;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "CPF";
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Email";
             // 
             // label3
             // 
@@ -192,14 +200,6 @@
             this.nome.Size = new System.Drawing.Size(100, 20);
             this.nome.TabIndex = 21;
             // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "CPF";
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Nome";
-            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Transparent;
@@ -231,6 +231,7 @@
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form4";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form4";
             this.Load += new System.EventHandler(this.Form4_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
