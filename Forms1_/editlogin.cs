@@ -11,10 +11,10 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Forms1_
 {
-    public partial class Form4 : Form
+    public partial class editlogin : Form
     {
         private int Id;
-        public Form4()
+        public editlogin()
         {
             InitializeComponent();
             UpdateListView();

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Forms1_
 {
-    public partial class Form2 : Form
+    public partial class calendar : Form
     {
-        public Form2()
+        public calendar()
         {
             InitializeComponent();
         }
@@ -21,5 +21,11 @@ namespace Forms1_
         {
 
         }
+
+        private void pictureBox17_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
+

@@ -1,6 +1,6 @@
 ﻿namespace Forms1_
 {
-    partial class Form3
+    partial class createaccount
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(createaccount));
             this.label6 = new System.Windows.Forms.Label();
             this.nome = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();

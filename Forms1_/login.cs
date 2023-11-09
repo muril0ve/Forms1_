@@ -16,12 +16,12 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 namespace Forms1_
 {
 
-    public partial class Form1 : Form
+    public partial class login : Form
     {
-        
+
         private readonly string DataBase = "PR2";
         private int Id;
-        public Form1()
+        public login()
         {
             InitializeComponent();
 
@@ -73,7 +73,7 @@ namespace Forms1_
                     }
                 }
             }
-        
+
 
 
 
@@ -113,17 +113,23 @@ namespace Forms1_
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-{
-    Form3 form = new Form3();
-    form.ShowDialog();
+        {
+            createaccount form = new createaccount();
+            form.ShowDialog();
 
-}
+        }
 
-private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-{
-    Form4 form = new Form4();
-    form.ShowDialog();
-}
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            editlogin form = new editlogin();
+            form.ShowDialog();
+        }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            CreateAdress form = new CreateAdress();
+            form.ShowDialog();
+        }
     }
 }
 

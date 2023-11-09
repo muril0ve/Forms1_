@@ -3,38 +3,40 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Forms1_
 {
-    internal class UserDAO
+    internal class AdressDAO
     {
-        public void InsertUser(User user)
+       
+        public void InsertAdress(Adress adress)
         {
             connection conexao1 = new connection();
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand.Connection = conexao1.ReturnConnection();
-            sqlCommand.CommandText = @"INSERT INTO login VALUES
-            (@email, @senha,  @nome, @cpf)"
-            ;
-
-            sqlCommand.Parameters.AddWithValue("@email", user.Email);
-            sqlCommand.Parameters.AddWithValue("@senha", user.Senha);
-            sqlCommand.Parameters.AddWithValue("@nome", user.Nome);
-            sqlCommand.Parameters.AddWithValue("@cpf", user.Cpf);
+            sqlCommand.CommandText = @"INSERT INTO adress VALUES
+            (@rua, @numero, @bairro, @cidade, @estado, @telefone)";
             
+
+            sqlCommand.Parameters.AddWithValue("@rua", adress.Rua);
+            sqlCommand.Parameters.AddWithValue("@numero", adress.Numero);
+            sqlCommand.Parameters.AddWithValue("@bairro", adress.Bairro);
+            sqlCommand.Parameters.AddWithValue("@cidade", adress.Cidade);
+            sqlCommand.Parameters.AddWithValue("@estado", adress.Estado);
+            sqlCommand.Parameters.AddWithValue("@telefone", adress.Telefone);
+
             sqlCommand.ExecuteNonQuery();
         }
-        public void DeleteUser(int Id)
+
+        public void DeleteAdress(int Id)
         {
             connection conexao1 = new connection();
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand.Connection = conexao1.ReturnConnection();
-            sqlCommand.CommandText = @"DELETE FROM login WHERE Id = @id";
+            sqlCommand.CommandText = @"DELETE FROM adress WHERE Id = @id";
             sqlCommand.Parameters.AddWithValue("@id", Id);
             try
             {
@@ -50,24 +52,27 @@ namespace Forms1_
             }
 
         }
-        public void UpdateUser(User user)
+        public void UpdateAdress(Adress adress)
         {
 
             connection conexao1 = new connection();
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand.Connection = conexao1.ReturnConnection();
-            sqlCommand.CommandText = @"UPDATE login SET
-            email = @email,
-            senha = @senha,
-            nome = @nome,
-            cpf = @cpf 
+            sqlCommand.CommandText = @"UPDATE adress SET
+            @rua, 
+            @numero,  
+            @bairro,
+            @cidade, 
+            @estado,
+            @telefone 
             WHERE Id = @id";
-            sqlCommand.Parameters.AddWithValue("@id", user.Id);
-            sqlCommand.Parameters.AddWithValue("@email", user.Email);
-            sqlCommand.Parameters.AddWithValue("@senha", user.Senha);
-            sqlCommand.Parameters.AddWithValue("@nome", user.Nome);
-            sqlCommand.Parameters.AddWithValue("@cpf", user.Cpf);
-            
+            sqlCommand.Parameters.AddWithValue("@email", adress.Rua);
+            sqlCommand.Parameters.AddWithValue("@senha", adress.Numero);
+            sqlCommand.Parameters.AddWithValue("@nome", adress.Bairro);
+            sqlCommand.Parameters.AddWithValue("@cpf", adress.Cidade);
+            sqlCommand.Parameters.AddWithValue("@cpf", adress.Estado);
+            sqlCommand.Parameters.AddWithValue("@cpf", adress.Telefone);
+
 
             sqlCommand.ExecuteNonQuery();
 
@@ -76,30 +81,30 @@ namespace Forms1_
             MessageBoxButtons.OK,
             MessageBoxIcon.Information);
         }
-
-        public List<User> SelectUser()
+        public List<Adress> SelectAdress()
         {
             connection conexao1 = new connection();
             SqlCommand sqlCommand = new SqlCommand();
 
             sqlCommand.Connection = conexao1.ReturnConnection();
-            sqlCommand.CommandText = "SELECT * FROM login";
+            sqlCommand.CommandText = "SELECT * FROM adress";
 
 
-            List<User> users = new List<User>();
+            List<Adress> users = new List<Adress>();
             try
             {
                 SqlDataReader dr = sqlCommand.ExecuteReader();
                 while (dr.Read())
                 {
-                    User objeto = new User(
+                    Adress objeto = new Adress(
                     (int)dr["Id"],
-                    (string)dr["email"],
-                    (string)dr["senha"],
-                    (string)dr["nome"],
-                    (string)dr["cpf"]
-
-                       );
+                    (string)dr["rua"],
+                    (int)dr["numero"],
+                    (string)dr["bairro"],
+                    (string)dr["cidade"],
+                    (string)dr["estado"],
+                    (string)dr["telefone"]
+                       ) ;
                     users.Add(objeto);
 
                 }
@@ -118,7 +123,5 @@ namespace Forms1_
             return users;
 
         }
-
-
     }
 }

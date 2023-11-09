@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace Forms1_
 {
-    public partial class Form3 : Form
+    public partial class createaccount : Form
     {
         private int Id;
-        public Form3()
+        public createaccount()
         {
             InitializeComponent();
         }
