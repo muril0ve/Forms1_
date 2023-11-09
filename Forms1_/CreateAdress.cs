@@ -27,7 +27,7 @@ namespace Forms1_
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Adress adress = new Adress();
+            Adress adress = new Adress(Id, rua.Text, numero.Text, bairro.Text, cidade.Text, estado.Text, telefone.Text);
             AdressDAO nomeDoObj = new AdressDAO();
             nomeDoObj.InsertAdress(adress);
 
@@ -57,6 +57,22 @@ namespace Forms1_
             cidade.Clear();
             estado.Clear();
             telefone.Clear();
+            numero.Clear();
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Close();    
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
 
         }
     }

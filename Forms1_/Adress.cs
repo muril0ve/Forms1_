@@ -11,7 +11,7 @@ namespace Forms1_
     {
         private int _id;
         private string _rua;
-        private int _numero;
+        private string _numero;
         private string _bairro;
         private string _cidade;
         private string _estado;
@@ -21,7 +21,7 @@ namespace Forms1_
         {
         }
 
-        public Adress(int id, string rua, int numero, string bairro, string cidade, string estado, string telefone)
+        public Adress(int id, string rua, string numero, string bairro, string cidade, string estado, string telefone)
         {
             Id = id;
             Rua = rua;
@@ -52,9 +52,16 @@ namespace Forms1_
 
             get { return _rua; }
         }
-        public int Numero
+        public string Numero
         {
-            set { _numero = value; }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                    throw new Exception("campo email esta vazio");
+                _numero = value;
+
+            }
+
             get { return _numero; }
         }
         public string Bairro 

@@ -99,7 +99,7 @@ namespace Forms1_
                     Adress objeto = new Adress(
                     (int)dr["Id"],
                     (string)dr["rua"],
-                    (int)dr["numero"],
+                    (string)dr["numero"],
                     (string)dr["bairro"],
                     (string)dr["cidade"],
                     (string)dr["estado"],
