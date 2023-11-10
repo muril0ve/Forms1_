@@ -10,22 +10,16 @@ using System.Windows.Forms;
 
 namespace Forms1_
 {
-    public partial class calendar : Form
+    public partial class beforeCalendar : Form
     {
-        public calendar()
+        public beforeCalendar()
         {
             InitializeComponent();
         }
 
-        private void pictureBox5_DoubleClick(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox17_Click(object sender, EventArgs e)
+        private void beforeCalendar_Load(object sender, EventArgs e)
         {
 
         }
     }
 }
-

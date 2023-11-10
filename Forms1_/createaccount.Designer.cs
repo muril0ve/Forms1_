@@ -42,15 +42,18 @@
             this.email = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.label6.BackColor = System.Drawing.Color.Black;
             this.label6.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label6.Location = new System.Drawing.Point(58, 50);
+            this.label6.Location = new System.Drawing.Point(342, 42);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(35, 13);
             this.label6.TabIndex = 12;
@@ -59,7 +62,7 @@
             // 
             // nome
             // 
-            this.nome.Location = new System.Drawing.Point(57, 66);
+            this.nome.Location = new System.Drawing.Point(341, 58);
             this.nome.Name = "nome";
             this.nome.Size = new System.Drawing.Size(100, 20);
             this.nome.TabIndex = 11;
@@ -68,9 +71,9 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.label7.BackColor = System.Drawing.Color.Black;
             this.label7.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label7.Location = new System.Drawing.Point(58, 95);
+            this.label7.Location = new System.Drawing.Point(342, 87);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(36, 13);
             this.label7.TabIndex = 14;
@@ -78,7 +81,7 @@
             // 
             // senha
             // 
-            this.senha.Location = new System.Drawing.Point(57, 111);
+            this.senha.Location = new System.Drawing.Point(341, 103);
             this.senha.Name = "senha";
             this.senha.PasswordChar = '*';
             this.senha.Size = new System.Drawing.Size(100, 20);
@@ -89,7 +92,7 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(-8, -18);
+            this.pictureBox1.Location = new System.Drawing.Point(-4, -3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(816, 467);
             this.pictureBox1.TabIndex = 0;
@@ -99,9 +102,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.label1.BackColor = System.Drawing.Color.Black;
             this.label1.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label1.Location = new System.Drawing.Point(58, 139);
+            this.label1.Location = new System.Drawing.Point(342, 131);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 13);
             this.label1.TabIndex = 16;
@@ -109,7 +112,7 @@
             // 
             // confsenha
             // 
-            this.confsenha.Location = new System.Drawing.Point(57, 155);
+            this.confsenha.Location = new System.Drawing.Point(341, 147);
             this.confsenha.Name = "confsenha";
             this.confsenha.PasswordChar = '*';
             this.confsenha.Size = new System.Drawing.Size(100, 20);
@@ -117,7 +120,7 @@
             // 
             // cpf
             // 
-            this.cpf.Location = new System.Drawing.Point(57, 204);
+            this.cpf.Location = new System.Drawing.Point(341, 193);
             this.cpf.Name = "cpf";
             this.cpf.PasswordChar = '*';
             this.cpf.Size = new System.Drawing.Size(100, 20);
@@ -126,9 +129,9 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.label2.BackColor = System.Drawing.Color.Black;
             this.label2.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label2.Location = new System.Drawing.Point(58, 188);
+            this.label2.Location = new System.Drawing.Point(342, 177);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(27, 13);
             this.label2.TabIndex = 18;
@@ -137,9 +140,9 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.label3.BackColor = System.Drawing.Color.Black;
             this.label3.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label3.Location = new System.Drawing.Point(58, 227);
+            this.label3.Location = new System.Drawing.Point(342, 219);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(31, 13);
             this.label3.TabIndex = 20;
@@ -147,7 +150,7 @@
             // 
             // email
             // 
-            this.email.Location = new System.Drawing.Point(57, 243);
+            this.email.Location = new System.Drawing.Point(341, 235);
             this.email.Name = "email";
             this.email.Size = new System.Drawing.Size(100, 20);
             this.email.TabIndex = 19;
@@ -157,7 +160,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Location = new System.Drawing.Point(68, 293);
+            this.button1.Location = new System.Drawing.Point(352, 317);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(69, 23);
             this.button1.TabIndex = 21;
@@ -169,7 +172,7 @@
             // 
             this.button2.BackColor = System.Drawing.Color.Transparent;
             this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button2.Location = new System.Drawing.Point(191, 294);
+            this.button2.Location = new System.Drawing.Point(352, 356);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(69, 23);
             this.button2.TabIndex = 22;
@@ -177,11 +180,53 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // Form3
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.BackColor = System.Drawing.Color.Black;
+            this.checkBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.checkBox2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.checkBox2.Location = new System.Drawing.Point(304, 277);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(142, 17);
+            this.checkBox2.TabIndex = 70;
+            this.checkBox2.Text = "Aceito os termos de uso.";
+            this.checkBox2.UseVisualStyleBackColor = false;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.BackColor = System.Drawing.Color.Black;
+            this.checkBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.checkBox1.Location = new System.Drawing.Point(304, 260);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(192, 17);
+            this.checkBox1.TabIndex = 69;
+            this.checkBox1.Text = "aceito receber e-mails relacionados";
+            this.checkBox1.UseVisualStyleBackColor = false;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.BackColor = System.Drawing.Color.Black;
+            this.radioButton1.CausesValidation = false;
+            this.radioButton1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.radioButton1.Location = new System.Drawing.Point(304, 294);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(192, 17);
+            this.radioButton1.TabIndex = 68;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "aceite os cookies para prosseguir :)";
+            this.radioButton1.UseVisualStyleBackColor = false;
+            // 
+            // createaccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.checkBox2);
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
@@ -195,7 +240,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.nome);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "Form3";
+            this.Name = "createaccount";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form3";
             this.Load += new System.EventHandler(this.Form3_Load);
@@ -219,5 +264,8 @@
         private System.Windows.Forms.TextBox email;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.RadioButton radioButton1;
     }
 }

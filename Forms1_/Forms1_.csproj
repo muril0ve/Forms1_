@@ -48,6 +48,12 @@
   <ItemGroup>
     <Compile Include="Adress.cs" />
     <Compile Include="AdressDAO.cs" />
+    <Compile Include="beforeCalendar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="beforeCalendar.Designer.cs">
+      <DependentUpon>beforeCalendar.cs</DependentUpon>
+    </Compile>
     <Compile Include="conexao.cs" />
     <Compile Include="CreateAdress.cs">
       <SubType>Form</SubType>
@@ -55,17 +61,23 @@
     <Compile Include="CreateAdress.Designer.cs">
       <DependentUpon>CreateAdress.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditAdress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditAdress.Designer.cs">
+      <DependentUpon>EditAdress.cs</DependentUpon>
+    </Compile>
     <Compile Include="login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="login.Designer.cs">
       <DependentUpon>login.cs</DependentUpon>
     </Compile>
-    <Compile Include="calendar.cs">
+    <Compile Include="afterCalendar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="calendar.Designer.cs">
-      <DependentUpon>calendar.cs</DependentUpon>
+    <Compile Include="afterCalendar.Designer.cs">
+      <DependentUpon>afterCalendar.cs</DependentUpon>
     </Compile>
     <Compile Include="createaccount.cs">
       <SubType>Form</SubType>
@@ -83,14 +95,20 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserDAO.cs" />
+    <EmbeddedResource Include="beforeCalendar.resx">
+      <DependentUpon>beforeCalendar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreateAdress.resx">
       <DependentUpon>CreateAdress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditAdress.resx">
+      <DependentUpon>EditAdress.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="calendar.resx">
-      <DependentUpon>calendar.cs</DependentUpon>
+    <EmbeddedResource Include="afterCalendar.resx">
+      <DependentUpon>afterCalendar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="createaccount.resx">
       <DependentUpon>createaccount.cs</DependentUpon>

@@ -45,7 +45,7 @@ namespace Forms1_
             set
             {
                 if (string.IsNullOrEmpty(value))
-                    throw new Exception("campo email esta vazio");
+                    throw new Exception("campo Rua esta vazio");
                 _rua = value;
 
             }

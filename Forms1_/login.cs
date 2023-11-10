@@ -66,6 +66,9 @@ namespace Forms1_
                     if (count > 0)
                     {
                         MessageBox.Show("Autenticação bem-sucedida. O email e a senha são válidos.");
+
+                        afterCalendar form = new afterCalendar();
+                        form.ShowDialog();
                     }
                     else
                     {
@@ -95,18 +98,7 @@ namespace Forms1_
 
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-
-        }
-
-
-
-
-
-
-
+    
         private void Form1_Load(object sender, EventArgs e)
         {
 

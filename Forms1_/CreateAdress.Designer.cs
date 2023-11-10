@@ -37,18 +37,22 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.rua = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.bairro = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.numero = new System.Windows.Forms.MaskedTextBox();
             this.telefone = new System.Windows.Forms.MaskedTextBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.button3 = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
@@ -56,7 +60,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Black;
             this.label3.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label3.Location = new System.Drawing.Point(70, 287);
+            this.label3.Location = new System.Drawing.Point(68, 262);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(45, 13);
             this.label3.TabIndex = 40;
@@ -67,7 +71,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Black;
             this.label2.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label2.Location = new System.Drawing.Point(70, 248);
+            this.label2.Location = new System.Drawing.Point(68, 223);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(39, 13);
             this.label2.TabIndex = 38;
@@ -75,7 +79,7 @@
             // 
             // estado
             // 
-            this.estado.Location = new System.Drawing.Point(69, 264);
+            this.estado.Location = new System.Drawing.Point(67, 239);
             this.estado.Name = "estado";
             this.estado.Size = new System.Drawing.Size(100, 20);
             this.estado.TabIndex = 37;
@@ -85,7 +89,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Black;
             this.label1.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label1.Location = new System.Drawing.Point(70, 199);
+            this.label1.Location = new System.Drawing.Point(68, 174);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(39, 13);
             this.label1.TabIndex = 36;
@@ -93,7 +97,7 @@
             // 
             // cidade
             // 
-            this.cidade.Location = new System.Drawing.Point(69, 215);
+            this.cidade.Location = new System.Drawing.Point(67, 190);
             this.cidade.Name = "cidade";
             this.cidade.Size = new System.Drawing.Size(100, 20);
             this.cidade.TabIndex = 35;
@@ -103,7 +107,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Black;
             this.label7.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label7.Location = new System.Drawing.Point(70, 109);
+            this.label7.Location = new System.Drawing.Point(68, 84);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(42, 13);
             this.label7.TabIndex = 34;
@@ -114,37 +118,27 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Black;
             this.label6.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label6.Location = new System.Drawing.Point(70, 64);
+            this.label6.Location = new System.Drawing.Point(68, 39);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(22, 13);
             this.label6.TabIndex = 32;
             this.label6.Text = "rua";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // rua
             // 
-            this.rua.Location = new System.Drawing.Point(69, 80);
+            this.rua.Location = new System.Drawing.Point(67, 55);
             this.rua.Name = "rua";
             this.rua.Size = new System.Drawing.Size(100, 20);
             this.rua.TabIndex = 31;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(-12, -13);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(816, 467);
-            this.pictureBox1.TabIndex = 41;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.rua.TextChanged += new System.EventHandler(this.rua_TextChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Black;
             this.label4.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label4.Location = new System.Drawing.Point(70, 150);
+            this.label4.Location = new System.Drawing.Point(68, 125);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(33, 13);
             this.label4.TabIndex = 43;
@@ -152,7 +146,7 @@
             // 
             // bairro
             // 
-            this.bairro.Location = new System.Drawing.Point(69, 166);
+            this.bairro.Location = new System.Drawing.Point(67, 141);
             this.bairro.Name = "bairro";
             this.bairro.Size = new System.Drawing.Size(100, 20);
             this.bairro.TabIndex = 42;
@@ -161,7 +155,7 @@
             // 
             this.button2.BackColor = System.Drawing.Color.Transparent;
             this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button2.Location = new System.Drawing.Point(202, 355);
+            this.button2.Location = new System.Drawing.Point(151, 364);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(69, 23);
             this.button2.TabIndex = 45;
@@ -173,7 +167,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Location = new System.Drawing.Point(79, 354);
+            this.button1.Location = new System.Drawing.Point(65, 364);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(69, 23);
             this.button1.TabIndex = 44;
@@ -183,7 +177,7 @@
             // 
             // numero
             // 
-            this.numero.Location = new System.Drawing.Point(69, 125);
+            this.numero.Location = new System.Drawing.Point(67, 100);
             this.numero.Mask = "0000";
             this.numero.Name = "numero";
             this.numero.Size = new System.Drawing.Size(100, 20);
@@ -191,23 +185,11 @@
             // 
             // telefone
             // 
-            this.telefone.Location = new System.Drawing.Point(69, 303);
+            this.telefone.Location = new System.Drawing.Point(67, 278);
             this.telefone.Mask = "(99) 00000-0000";
             this.telefone.Name = "telefone";
             this.telefone.Size = new System.Drawing.Size(100, 20);
             this.telefone.TabIndex = 47;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Image = global::Forms1_.Properties.Resources.jordans_shoes;
-            this.pictureBox2.Location = new System.Drawing.Point(377, 132);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(319, 191);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 48;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // panel1
             // 
@@ -225,11 +207,90 @@
             this.panel2.Size = new System.Drawing.Size(70, 191);
             this.panel2.TabIndex = 50;
             // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.Transparent;
+            this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button3.Location = new System.Drawing.Point(237, 364);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(108, 23);
+            this.button3.TabIndex = 51;
+            this.button3.Text = "editar endereço";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Image = global::Forms1_.Properties.Resources.jordans_shoes;
+            this.pictureBox2.Location = new System.Drawing.Point(377, 132);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(319, 191);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 48;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(-12, -13);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(816, 467);
+            this.pictureBox1.TabIndex = 41;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.BackColor = System.Drawing.Color.Black;
+            this.checkBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.checkBox2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.checkBox2.Location = new System.Drawing.Point(65, 321);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(142, 17);
+            this.checkBox2.TabIndex = 67;
+            this.checkBox2.Text = "Aceito os termos de uso.";
+            this.checkBox2.UseVisualStyleBackColor = false;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.BackColor = System.Drawing.Color.Black;
+            this.checkBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.checkBox1.Location = new System.Drawing.Point(65, 304);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(192, 17);
+            this.checkBox1.TabIndex = 66;
+            this.checkBox1.Text = "aceito receber e-mails relacionados";
+            this.checkBox1.UseVisualStyleBackColor = false;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.BackColor = System.Drawing.Color.Black;
+            this.radioButton1.CausesValidation = false;
+            this.radioButton1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.radioButton1.Location = new System.Drawing.Point(65, 338);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(192, 17);
+            this.radioButton1.TabIndex = 65;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "aceite os cookies para prosseguir :)";
+            this.radioButton1.UseVisualStyleBackColor = false;
+            // 
             // CreateAdress
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.checkBox2);
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox2);
@@ -252,8 +313,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CreateAdress";
             this.Load += new System.EventHandler(this.CreateAdress_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -279,5 +340,9 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.RadioButton radioButton1;
     }
 }

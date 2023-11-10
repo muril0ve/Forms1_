@@ -75,5 +75,21 @@ namespace Forms1_
         {
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            EditAdress form = new EditAdress();
+            form.ShowDialog();
+        }
+
+        private void rua_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
