@@ -20,7 +20,7 @@ namespace Forms1_
     {
 
         private readonly string DataBase = "PR2";
-        private int Id;
+        
         public login()
         {
             InitializeComponent();
@@ -76,6 +76,7 @@ namespace Forms1_
                     }
                 }
             }
+
 
 
 

@@ -73,7 +73,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Black;
             this.label7.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label7.Location = new System.Drawing.Point(342, 87);
+            this.label7.Location = new System.Drawing.Point(342, 124);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(36, 13);
             this.label7.TabIndex = 14;
@@ -81,7 +81,7 @@
             // 
             // senha
             // 
-            this.senha.Location = new System.Drawing.Point(341, 103);
+            this.senha.Location = new System.Drawing.Point(341, 140);
             this.senha.Name = "senha";
             this.senha.PasswordChar = '*';
             this.senha.Size = new System.Drawing.Size(100, 20);
@@ -104,7 +104,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Black;
             this.label1.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label1.Location = new System.Drawing.Point(342, 131);
+            this.label1.Location = new System.Drawing.Point(342, 168);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 13);
             this.label1.TabIndex = 16;
@@ -112,7 +112,7 @@
             // 
             // confsenha
             // 
-            this.confsenha.Location = new System.Drawing.Point(341, 147);
+            this.confsenha.Location = new System.Drawing.Point(341, 184);
             this.confsenha.Name = "confsenha";
             this.confsenha.PasswordChar = '*';
             this.confsenha.Size = new System.Drawing.Size(100, 20);
@@ -120,7 +120,7 @@
             // 
             // cpf
             // 
-            this.cpf.Location = new System.Drawing.Point(341, 193);
+            this.cpf.Location = new System.Drawing.Point(341, 230);
             this.cpf.Name = "cpf";
             this.cpf.PasswordChar = '*';
             this.cpf.Size = new System.Drawing.Size(100, 20);
@@ -131,7 +131,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Black;
             this.label2.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label2.Location = new System.Drawing.Point(342, 177);
+            this.label2.Location = new System.Drawing.Point(342, 214);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(27, 13);
             this.label2.TabIndex = 18;
@@ -142,7 +142,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Black;
             this.label3.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label3.Location = new System.Drawing.Point(342, 219);
+            this.label3.Location = new System.Drawing.Point(342, 81);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(31, 13);
             this.label3.TabIndex = 20;
@@ -150,7 +150,7 @@
             // 
             // email
             // 
-            this.email.Location = new System.Drawing.Point(341, 235);
+            this.email.Location = new System.Drawing.Point(341, 97);
             this.email.Name = "email";
             this.email.Size = new System.Drawing.Size(100, 20);
             this.email.TabIndex = 19;

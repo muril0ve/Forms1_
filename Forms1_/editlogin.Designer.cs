@@ -133,7 +133,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.label3.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label3.Location = new System.Drawing.Point(117, 250);
+            this.label3.Location = new System.Drawing.Point(117, 153);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(31, 13);
             this.label3.TabIndex = 28;
@@ -141,7 +141,7 @@
             // 
             // email
             // 
-            this.email.Location = new System.Drawing.Point(116, 266);
+            this.email.Location = new System.Drawing.Point(116, 169);
             this.email.Name = "email";
             this.email.Size = new System.Drawing.Size(100, 20);
             this.email.TabIndex = 27;
@@ -151,7 +151,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.label2.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label2.Location = new System.Drawing.Point(116, 202);
+            this.label2.Location = new System.Drawing.Point(116, 240);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(27, 13);
             this.label2.TabIndex = 26;
@@ -162,18 +162,20 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.label7.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label7.Location = new System.Drawing.Point(117, 161);
+            this.label7.Location = new System.Drawing.Point(117, 201);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(36, 13);
             this.label7.TabIndex = 24;
             this.label7.Text = "senha";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // senha
             // 
-            this.senha.Location = new System.Drawing.Point(116, 177);
+            this.senha.Location = new System.Drawing.Point(116, 217);
             this.senha.Name = "senha";
             this.senha.Size = new System.Drawing.Size(100, 20);
             this.senha.TabIndex = 23;
+            this.senha.TextChanged += new System.EventHandler(this.senha_TextChanged);
             // 
             // label6
             // 
@@ -192,6 +194,7 @@
             this.nome.Name = "nome";
             this.nome.Size = new System.Drawing.Size(100, 20);
             this.nome.TabIndex = 21;
+            this.nome.TextChanged += new System.EventHandler(this.nome_TextChanged);
             // 
             // button1
             // 
@@ -207,7 +210,7 @@
             // 
             // cpf
             // 
-            this.cpf.Location = new System.Drawing.Point(116, 218);
+            this.cpf.Location = new System.Drawing.Point(116, 256);
             this.cpf.Mask = "000.000.000-00";
             this.cpf.Name = "cpf";
             this.cpf.Size = new System.Drawing.Size(100, 20);

@@ -45,6 +45,7 @@ namespace Forms1_
 
         private void button1_Click(object sender, EventArgs e)
         {
+
             User user = new User(Id, email.Text, senha.Text, cpf.Text, nome.Text);
             UserDAO nomeDoObj = new UserDAO();
             nomeDoObj.InsertUser(user);
@@ -72,17 +73,18 @@ namespace Forms1_
             confsenha.Clear();
 
 
-
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
+            private void pictureBox1_Click(object sender, EventArgs e)
+            {
 
-        }
+            }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Close();
+            private void button2_Click(object sender, EventArgs e)
+            {
+                Close();
+            }
         }
     }
-}
+
+

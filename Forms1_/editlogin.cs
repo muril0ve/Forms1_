@@ -57,6 +57,8 @@ namespace Forms1_
             nomeDoObj.UpdateUser(user);
             email.Clear();
             senha.Clear();
+            nome.Clear();
+            cpf.Clear();
 
             UpdateListView();
             MessageBox.Show("Atualizado com sucesso",
@@ -95,7 +97,7 @@ namespace Forms1_
             cpf.Clear();
             nome.Clear();
 
-            UpdateListView();
+           
             MessageBox.Show("Excluido com sucesso",
            "AVISO",
            MessageBoxButtons.OK,
@@ -119,6 +121,21 @@ namespace Forms1_
         private void button1_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void senha_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nome_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

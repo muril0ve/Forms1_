@@ -77,6 +77,22 @@ namespace Forms1_
         {
             System.Diagnostics.Process.Start("https://www.drizzle.com.br/products/nike-dunk-low-court-purple");
         }
+
+        private void pictureBox17_DoubleClick(object sender, EventArgs e)
+        {
+            beforeCalendar form = new beforeCalendar();
+            form.ShowDialog();
+        }
+
+        private void pictureBox15_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://droper.app/sparks");
+        }
+
+        private void pictureBox14_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.friv.com");
+        }
     }
 }
 

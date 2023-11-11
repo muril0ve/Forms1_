@@ -131,7 +131,7 @@
             // 
             this.linkLabel3.AutoSize = true;
             this.linkLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.linkLabel3.Location = new System.Drawing.Point(340, 308);
+            this.linkLabel3.Location = new System.Drawing.Point(337, 308);
             this.linkLabel3.Name = "linkLabel3";
             this.linkLabel3.Size = new System.Drawing.Size(106, 13);
             this.linkLabel3.TabIndex = 8;

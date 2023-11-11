@@ -216,11 +216,12 @@
             this.pictureBox14.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox14.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox14.BackgroundImage")));
             this.pictureBox14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox14.Location = new System.Drawing.Point(-9, 57);
+            this.pictureBox14.Location = new System.Drawing.Point(-11, 62);
             this.pictureBox14.Name = "pictureBox14";
             this.pictureBox14.Size = new System.Drawing.Size(68, 40);
             this.pictureBox14.TabIndex = 15;
             this.pictureBox14.TabStop = false;
+            this.pictureBox14.Click += new System.EventHandler(this.pictureBox14_Click);
             // 
             // pictureBox15
             // 
@@ -232,6 +233,7 @@
             this.pictureBox15.Size = new System.Drawing.Size(75, 37);
             this.pictureBox15.TabIndex = 16;
             this.pictureBox15.TabStop = false;
+            this.pictureBox15.Click += new System.EventHandler(this.pictureBox15_Click);
             // 
             // pictureBox16
             // 
@@ -255,6 +257,7 @@
             this.pictureBox17.TabIndex = 18;
             this.pictureBox17.TabStop = false;
             this.pictureBox17.Click += new System.EventHandler(this.pictureBox17_Click);
+            this.pictureBox17.DoubleClick += new System.EventHandler(this.pictureBox17_DoubleClick);
             // 
             // label1
             // 
