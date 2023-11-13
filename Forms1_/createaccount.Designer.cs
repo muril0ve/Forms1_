@@ -86,6 +86,7 @@
             this.senha.PasswordChar = '*';
             this.senha.Size = new System.Drawing.Size(100, 20);
             this.senha.TabIndex = 13;
+            this.senha.TextChanged += new System.EventHandler(this.senha_TextChanged);
             // 
             // pictureBox1
             // 

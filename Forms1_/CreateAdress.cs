@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
@@ -58,6 +59,27 @@ namespace Forms1_
             estado.Clear();
             telefone.Clear();
             numero.Clear();
+            string numeroTelefone = telefone.Text;
+
+            if (ValidarTelefone(numeroTelefone))
+            {
+                MessageBox.Show("Número de telefone válido!");
+            }
+            else
+            {
+                MessageBox.Show("Número de telefone inválido. Por favor, insira um número válido.");
+            }
+        }
+
+        private bool ValidarTelefone(string numeroTelefone)
+        {
+            // Utilizando uma expressão regular que aceita diversos formatos comuns de números de telefone.
+            // Adaptar conforme necessário para atender aos requisitos específicos.
+            string pattern = @"^(\+\d{1,2}\s?)?[0-10\-\.]+\d$";
+
+            Regex regex = new Regex(pattern);
+
+            return regex.IsMatch(numeroTelefone);
 
         }
 
