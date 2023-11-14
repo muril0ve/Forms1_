@@ -16,8 +16,7 @@ namespace Forms1_
 
     public partial class createaccount : Form
     {
-        private readonly string DataBase = "PR2";
-        // private const string connectionString = "Data Source=" + Environment.MachineName + "@SQLEXPRESS;Initial Catalog=" + DataBase + ";Integrated Security=true";
+
         private int Id;
 
         public createaccount()
@@ -52,8 +51,13 @@ namespace Forms1_
 
         private void button1_Click(object sender, EventArgs e)
         {
+            // Obtém a senha da TextBox
+            string senhaOriginal = senha.Text;
 
-            User user = new User(Id, email.Text, senha.Text, cpf.Text, nome.Text);
+            // Criptografa a senha usando SHA-256
+            string senhaCriptografada = CalcularSHA256(senhaOriginal);
+
+            User user = new User(Id, email.Text, senhaCriptografada, cpf.Text, nome.Text);
             UserDAO nomeDoObj = new UserDAO();
             nomeDoObj.InsertUser(user);
 
@@ -80,20 +84,10 @@ namespace Forms1_
             confsenha.Clear();
 
 
-            //// Obtém a senha da TextBox
-            //string senhaOriginal = senha.Text;
 
-            //// Criptografa a senha usando SHA-256
-            //string senhaCriptografada = CalcularSHA256(senhaOriginal);
 
-            //// Insere a senha criptografada no banco de dados
-            //InserirSenhaNoBanco(senhaCriptografada);
 
-            //// Exibe uma mensagem indicando que a senha foi inserida no banco de dados (opcional)
-            //MessageBox.Show("Senha criptografada inserida no banco de dados com sucesso.");
 
-            //// Limpa a TextBox após a operação (opcional)
-            //senha.Text = "";
         }
 
         private string CalcularSHA256(string input)
@@ -117,33 +111,9 @@ namespace Forms1_
             }
         }
 
-        //private void InserirSenhaNoBanco(string senhaCriptografada)
-        //{
-        //    using (SqlConnection connection = new SqlConnection(connectionString))
-        //    {
-        //        try
-        //        {
-        //            connection.Open();
 
-        //            // Substitua "NomeDaTabela" pelo nome real da tabela onde você deseja armazenar as senhas
-        //            string query = "INSERT INTO login (senha) VALUES (@senha)";
 
-        //            using (SqlCommand command = new SqlCommand(query, connection))
-        //            {
-        //                // Adiciona o parâmetro para a senha criptografada
-        //                command.Parameters.AddWithValue("@Senha", senhaCriptografada);
 
-        //                // Executa o comando SQL
-        //                command.ExecuteNonQuery();
-        //            }
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            MessageBox.Show($"Erro ao inserir a senha no banco de dados: {ex.Message}");
-        //        }
-        //    }
-
-        //}
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {

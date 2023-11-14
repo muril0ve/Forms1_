@@ -122,6 +122,7 @@
             // cpf
             // 
             this.cpf.Location = new System.Drawing.Point(341, 230);
+            this.cpf.MaxLength = 14;
             this.cpf.Name = "cpf";
             this.cpf.PasswordChar = '*';
             this.cpf.Size = new System.Drawing.Size(100, 20);
