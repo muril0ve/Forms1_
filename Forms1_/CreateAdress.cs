@@ -27,7 +27,7 @@ namespace Forms1_
         {
 
         }
-      
+
 
 
         private void button1_Click(object sender, EventArgs e)
@@ -65,44 +65,39 @@ namespace Forms1_
             telefone.Clear();
             numero.Clear();
 
-            string numeroTelefone = telefone.Text;
+            // Obter a string da TextBox
+            string input = telefone.Text;
 
-            if (ValidarTelefone(numeroTelefone))
-            {
-                MessageBox.Show("Número de telefone válido!");
-            }
-            else
-            {
-                MessageBox.Show("Número de telefone inválido. Por favor, insira um número válido.");
-            }
-            string aTelefone = telefone.Text;
-
-            // Remover caracteres especiais
-            string numeroSemCaracteres = RemoverCaracteresEspeciais(numeroTelefone);
+            // Remover caracteres não numéricos
+            string numerosApenas = RemoverNaoNumericos(input);
 
             // Inserir no banco de dados
-            InserirNoBancoDeDados(numeroSemCaracteres);
-
+            InserirNoBancoDeDados(numerosApenas);
         }
-        private string RemoverCaracteresEspeciais(string input)
+        private string RemoverNaoNumericos(string input)
         {
-            // Substituir todos os caracteres que não são letras ou números por uma string vazia
-            return Regex.Replace(input, "[^a-zA-Z0-9]", "");
+            // Utilizar expressão regular para manter apenas os dígitos
+            return Regex.Replace(input, @"[^\d]", "");
         }
 
-        private void InserirNoBancoDeDados(string numeroSemCaracteres)
+        private void InserirNoBancoDeDados(string numerosApenas)
         {
             try
             {
-                // Substitua "sua_string_de_conexao" pela string de conexão real do seu banco de dados
-                string connectionString = "";
+                string servidor = "DESKTOP-MBDNUGB\\SQLEXPRESS"; // substitua pelo endereço do seu servidor de banco de dados
+                string bancoDeDados = "PR2";
+               
+
+                string connectionString = $"Data Source={servidor};Initial Catalog={bancoDeDados}";
+
+                
 
                 using (SqlConnection conexao = new SqlConnection(connectionString))
                 {
                     conexao.Open();
 
                     // Substitua "NomeDaTabela" pelo nome real da tabela no seu banco de dados
-                    string query = $"INSERT INTO adress (numeroTelefone) VALUES ('{numeroSemCaracteres}')";
+                    string query = $"INSERT INTO adress (@telefone) VALUES ('{numerosApenas}')";
 
                     using (SqlCommand comando = new SqlCommand(query, conexao))
                     {
@@ -111,25 +106,12 @@ namespace Forms1_
                 }
 
                 MessageBox.Show("Dados inseridos no banco de dados com sucesso!");
+                Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Erro ao inserir no banco de dados: {ex.Message}");
             }
-        }
-
-       
-        private bool ValidarTelefone(string numeroTelefone)
-        {
-            // Utilizando uma expressão regular que aceita diversos formatos comuns de números de telefone.
-            // Adaptar conforme necessário para atender aos requisitos específicos.
-            string pattern = @"^(\+\d{1,2}\s?)?[0-10\-\.]+\d$";
-
-            Regex regex = new Regex(pattern);
-
-            return regex.IsMatch(numeroTelefone);
-            
-
         }
 
         private void button2_Click(object sender, EventArgs e)

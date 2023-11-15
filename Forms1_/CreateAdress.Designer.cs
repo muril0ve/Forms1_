@@ -39,7 +39,6 @@
             this.rua = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.bairro = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.numero = new System.Windows.Forms.MaskedTextBox();
             this.telefone = new System.Windows.Forms.MaskedTextBox();
@@ -151,18 +150,6 @@
             this.bairro.Size = new System.Drawing.Size(100, 20);
             this.bairro.TabIndex = 42;
             // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button2.Location = new System.Drawing.Point(151, 364);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(69, 23);
-            this.button2.TabIndex = 45;
-            this.button2.Text = "Voltar";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Transparent;
@@ -212,7 +199,7 @@
             // 
             this.button3.BackColor = System.Drawing.Color.Transparent;
             this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button3.Location = new System.Drawing.Point(237, 364);
+            this.button3.Location = new System.Drawing.Point(149, 364);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(108, 23);
             this.button3.TabIndex = 51;
@@ -297,7 +284,6 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.telefone);
             this.Controls.Add(this.numero);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.bairro);
@@ -334,7 +320,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox bairro;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.MaskedTextBox numero;
         private System.Windows.Forms.MaskedTextBox telefone;

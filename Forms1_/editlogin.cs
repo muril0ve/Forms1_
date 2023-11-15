@@ -52,11 +52,11 @@ namespace Forms1_
         private void button2_Click(object sender, EventArgs e)
         {
 
-            User user = new User(Id,email.Text, senha.Text, cpf.Text, nome.Text );
+            User user = new User(Id,email.Text, cpf.Text, nome.Text );
             UserDAO nomeDoObj = new UserDAO();
             nomeDoObj.UpdateUser(user);
             email.Clear();
-            senha.Clear();
+            
             nome.Clear();
             cpf.Clear();
 
@@ -93,7 +93,7 @@ namespace Forms1_
             UserDAO nomeDoObj = new UserDAO();
             nomeDoObj.DeleteUser(Id);
             email.Clear();
-            senha.Clear();
+            
             cpf.Clear();
             nome.Clear();
 
@@ -112,9 +112,9 @@ namespace Forms1_
             index = listView1.FocusedItem.Index;
             Id = int.Parse(listView1.Items[index].SubItems[0].Text);
             nome.Text = listView1.Items[index].SubItems[1].Text;
-            senha.Text = listView1.Items[index].SubItems[2].Text;
+            email.Text = listView1.Items[index].SubItems[2].Text;
             cpf.Text = listView1.Items[index].SubItems[3].Text;
-            email.Text = listView1.Items[index].SubItems[4].Text;
+            
             
         }
 
@@ -134,6 +134,16 @@ namespace Forms1_
         }
 
         private void nome_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void email_TextChanged(object sender, EventArgs e)
         {
 
         }

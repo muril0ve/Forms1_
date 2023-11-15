@@ -17,7 +17,7 @@ namespace Forms1_
     public partial class createaccount : Form
     {
 
-        private int Id;
+        private readonly int Id;
 
         public createaccount()
         {
@@ -83,11 +83,20 @@ namespace Forms1_
             nome.Clear();
             confsenha.Clear();
 
+            string senha1 = senha.Text;
+            string senha2 = confsenha.Text;
 
+            // Verificar se as senhas são iguais
+            if (senha1 == senha2)
+            {
+                MessageBox.Show("Senhas iguais");
+                Close();
 
-
-
-
+            }
+            else
+            {
+                MessageBox.Show("Senhas diferentes. Tente novamente.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private string CalcularSHA256(string input)
@@ -126,6 +135,11 @@ namespace Forms1_
         }
 
         private void senha_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cpf_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
         }
