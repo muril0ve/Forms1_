@@ -107,5 +107,24 @@ namespace Forms1_
             estado.Text = LV.Items[index].SubItems[5].Text;
             telefone.Text = LV.Items[index].SubItems[6].Text;
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            AdressDAO OBJ = new AdressDAO();
+            OBJ.DeleteAdress(Id);
+            rua.Clear();
+            numero.Clear();
+            bairro.Clear();
+            cidade.Clear();
+            estado.Clear();
+            telefone.Clear();
+
+
+            MessageBox.Show("Excluido com sucesso",
+           "AVISO",
+           MessageBoxButtons.OK,
+           MessageBoxIcon.Information);
+            UpdateListView();
+        }
     }
 }

@@ -173,7 +173,7 @@
             // telefone
             // 
             this.telefone.Location = new System.Drawing.Point(67, 278);
-            this.telefone.Mask = "(99) 00000-0000";
+            this.telefone.Mask = "(00) 00000-0000";
             this.telefone.Name = "telefone";
             this.telefone.Size = new System.Drawing.Size(100, 20);
             this.telefone.TabIndex = 47;
