@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -42,6 +43,12 @@ namespace Forms1_
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+            string senhaOriginal = S_enha.Text;
+
+            // Criptografa a senha usando SHA-256
+            string senhaCriptografada = CalcularSHA256(senhaOriginal);
+
             string email = E_mail.Text;
             string senha = S_enha.Text;
 
@@ -59,7 +66,7 @@ namespace Forms1_
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@email", email);
-                    command.Parameters.AddWithValue("@senha", senha); // Lembre-se de usar criptografia adequada para senhas no ambiente de produção.
+                    command.Parameters.AddWithValue("@senha", senhaCriptografada); // Lembre-se de usar criptografia adequada para senhas no ambiente de produção.
 
                     int count = (int)command.ExecuteScalar();
 
@@ -77,14 +84,35 @@ namespace Forms1_
                 }
             }
 
-
-
-
-
-
             E_mail.Clear();
             S_enha.Clear();
 
+            
+            
+
+            
+
+        }
+
+        private string CalcularSHA256(string input)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                // Converte a string de entrada em bytes
+                byte[] bytes = Encoding.UTF8.GetBytes(input);
+
+                // Calcula o hash SHA-256
+                byte[] hashBytes = sha256.ComputeHash(bytes);
+
+                // Converte o resultado do hash em uma string hexadecimal
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < hashBytes.Length; i++)
+                {
+                    builder.Append(hashBytes[i].ToString("x2"));
+                }
+
+                return builder.ToString();
+            }
         }
 
 

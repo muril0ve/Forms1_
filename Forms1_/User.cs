@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
@@ -43,6 +44,7 @@ namespace Forms1_
         {
             set
             {
+                
                 if (string.IsNullOrEmpty(value))
                     throw new Exception("campo email esta vazio");
                 _email = value;
