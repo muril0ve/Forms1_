@@ -57,14 +57,12 @@ namespace Forms1_
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand.Connection = conexao1.ReturnConnection();
             sqlCommand.CommandText = @"UPDATE login SET
-            email = @email,
-            senha = @senha,
+            email = @email,  
             nome = @nome,
             cpf = @cpf 
             WHERE Id = @id";
             sqlCommand.Parameters.AddWithValue("@id", user.Id);
-            sqlCommand.Parameters.AddWithValue("@email", user.Email);
-            sqlCommand.Parameters.AddWithValue("@senha", user.Senha);
+            sqlCommand.Parameters.AddWithValue("@email", user.Email); 
             sqlCommand.Parameters.AddWithValue("@nome", user.Nome);
             sqlCommand.Parameters.AddWithValue("@cpf", user.Cpf);
             
@@ -96,8 +94,9 @@ namespace Forms1_
                     (int)dr["Id"],
                     (string)dr["email"],
                     (string)dr["senha"],
-                    (string)dr["nome"],
-                    (string)dr["cpf"]
+                    (string)dr["cpf"],
+                    (string)dr["nome"]
+                    
 
                        );
                     users.Add(objeto);

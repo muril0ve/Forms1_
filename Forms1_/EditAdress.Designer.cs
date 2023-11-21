@@ -212,6 +212,7 @@
             this.columnHeader6,
             this.columnHeader7});
             this.LV.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.LV.FullRowSelect = true;
             this.LV.HideSelection = false;
             this.LV.Location = new System.Drawing.Point(376, 101);
             this.LV.Name = "LV";

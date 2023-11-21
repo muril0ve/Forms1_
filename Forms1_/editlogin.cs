@@ -33,13 +33,11 @@ namespace Forms1_
                 {
                     ListViewItem lv = new ListViewItem(user.Id.ToString());
 
-                    lv.SubItems.Add(user.Cpf);
-                    lv.SubItems.Add(user.Senha);
                     lv.SubItems.Add(user.Nome);
                     lv.SubItems.Add(user.Email);
-
-
-                    listView1.Items.Add(lv);
+                    lv.SubItems.Add(user.Cpf);       
+                    
+                   listView1.Items.Add(lv);
                 }
             }
             catch (Exception err)

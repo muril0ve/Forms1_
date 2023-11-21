@@ -59,19 +59,21 @@ namespace Forms1_
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand.Connection = conexao1.ReturnConnection();
             sqlCommand.CommandText = @"UPDATE adress SET
-            @rua, 
-            @numero,  
-            @bairro,
-            @cidade, 
-            @estado,
-            @telefone 
+            rua = @rua, 
+            numero = @numero,  
+            bairro = @bairro,
+            cidade = @cidade, 
+            estado = @estado,
+            telefone = @telefone 
             WHERE Id = @id";
-            sqlCommand.Parameters.AddWithValue("@email", adress.Rua);
-            sqlCommand.Parameters.AddWithValue("@senha", adress.Numero);
-            sqlCommand.Parameters.AddWithValue("@nome", adress.Bairro);
-            sqlCommand.Parameters.AddWithValue("@cpf", adress.Cidade);
-            sqlCommand.Parameters.AddWithValue("@cpf", adress.Estado);
-            sqlCommand.Parameters.AddWithValue("@cpf", adress.Telefone);
+
+            sqlCommand.Parameters.AddWithValue("@Id", adress.Id);
+            sqlCommand.Parameters.AddWithValue("@rua", adress.Rua);
+            sqlCommand.Parameters.AddWithValue("@numero", adress.Numero);
+            sqlCommand.Parameters.AddWithValue("@bairro", adress.Bairro);
+            sqlCommand.Parameters.AddWithValue("@cidade", adress.Cidade);
+            sqlCommand.Parameters.AddWithValue("@estado", adress.Estado);
+            sqlCommand.Parameters.AddWithValue("@telefone", adress.Telefone);
 
 
             sqlCommand.ExecuteNonQuery();

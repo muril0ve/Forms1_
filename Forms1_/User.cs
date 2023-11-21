@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Forms1_
 {
@@ -13,21 +14,20 @@ namespace Forms1_
         private string _senha;
         private string _cpf;
         private string _nome;
-        private string text1;
-        private string text2;
-        private string text3;
+        
 
         public User()
         {
 
         }
 
-        public User(int id, string text1, string text2, string text3)
+        public User(int id, string email, string cpf, string nome)
         {
             Id = id;
-            this.text1 = text1;
-            this.text2 = text2;
-            this.text3 = text3;
+            Email = email;
+            Cpf = cpf;
+            Nome = nome;
+
         }
 
         public User(int id, string email, string senha, string cpf, string nome)
