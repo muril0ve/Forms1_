@@ -5,15 +5,25 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using iTextSharp;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.IO;
+using System.Data.SqlClient;
+using InvestimentosMais;
 
 namespace Forms1_
 {
     public partial class editlogin : Form
     {
+
         private int Id;
+
+
+
         public editlogin()
         {
             InitializeComponent();
@@ -26,7 +36,7 @@ namespace Forms1_
 
             UserDAO userDAO = new UserDAO();
             List<User> users = userDAO.SelectUser();
-            
+
             try
             {
                 foreach (User user in users)
@@ -35,9 +45,9 @@ namespace Forms1_
 
                     lv.SubItems.Add(user.Nome);
                     lv.SubItems.Add(user.Email);
-                    lv.SubItems.Add(user.Cpf);       
-                    
-                   listView1.Items.Add(lv);
+                    lv.SubItems.Add(user.Cpf);
+
+                    listView1.Items.Add(lv);
                 }
             }
             catch (Exception err)
@@ -50,12 +60,12 @@ namespace Forms1_
         private void button2_Click(object sender, EventArgs e)
         {
 
-            User user = new User(Id,email.Text, cpf.Text, nome.Text );
+            User user = new User(Id, email.Text, cpf.Text, Nome.Text);
             UserDAO nomeDoObj = new UserDAO();
             nomeDoObj.UpdateUser(user);
             email.Clear();
-            
-            nome.Clear();
+
+            Nome.Clear();
             cpf.Clear();
 
             UpdateListView();
@@ -63,11 +73,11 @@ namespace Forms1_
            "AVISO",
            MessageBoxButtons.OK,
            MessageBoxIcon.Information);
-           UpdateListView();
+            UpdateListView();
 
         }
 
-      
+
 
         private void Form4_Load(object sender, EventArgs e)
         {
@@ -79,7 +89,7 @@ namespace Forms1_
 
         }
 
-       
+
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -91,11 +101,11 @@ namespace Forms1_
             UserDAO nomeDoObj = new UserDAO();
             nomeDoObj.DeleteUser(Id);
             email.Clear();
-            
-            cpf.Clear();
-            nome.Clear();
 
-           
+            cpf.Clear();
+            Nome.Clear();
+
+
             MessageBox.Show("Excluido com sucesso",
            "AVISO",
            MessageBoxButtons.OK,
@@ -109,11 +119,11 @@ namespace Forms1_
 
             index = listView1.FocusedItem.Index;
             Id = int.Parse(listView1.Items[index].SubItems[0].Text);
-            nome.Text = listView1.Items[index].SubItems[1].Text;
+            Nome.Text = listView1.Items[index].SubItems[1].Text;
             email.Text = listView1.Items[index].SubItems[2].Text;
             cpf.Text = listView1.Items[index].SubItems[3].Text;
-            
-            
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -140,10 +150,121 @@ namespace Forms1_
         {
 
         }
+        private static bool VerificarUsuarioExistenteAddress(string nomeUsuario)
+        {
+            connection connection = new connection();
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.Connection = connection.ReturnConnection();
+            sqlCommand.CommandText = "SELECT COUNT(*) FROM login WHERE email = @email";
+
+            sqlCommand.Parameters.AddWithValue("@verificar", nomeUsuario);
+
+            int count = (int)sqlCommand.ExecuteScalar();
+
+            return count > 0;
+        }
 
         private void email_TextChanged(object sender, EventArgs e)
         {
 
         }
+
+        private void imprimir_Click(object sender, EventArgs e)
+
+        {
+            string nomeUsuario = Nome.Text;
+            bool loginExiste = VerificarUsuarioExistenteAddress(nomeUsuario);
+
+            for (; ; )
+            {
+                if (loginExiste)
+                {
+                    string email, senha, nome, cpf;
+
+                    connection connection = new connection();
+                    SqlCommand sqlCommand = new SqlCommand();
+
+                    sqlCommand.Connection = connection.ReturnConnection();
+                    sqlCommand.CommandText = "SELECT * FROM CreateAccount WHERE usuario = @user";
+                    sqlCommand.Parameters.AddWithValue("@user", Nome.Text);
+
+                    if (Nome.Text == "")
+                    {
+                        MessageBox.Show(
+                        "preencha o nome de usuário!",
+                        "MONDIAL™",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                        Nome.Clear();
+                    }
+                    else
+                    {
+                        using (SqlDataReader reader = sqlCommand.ExecuteReader())
+                        {
+                            reader.Read();
+                            email = (string)reader["email"];
+                            senha = "**";
+                            nome = (string)reader["nome"];
+                            ;
+                        }
+
+                        sqlCommand.CommandText = "SELECT * FROM login WHERE usuario = @user";
+
+                        using (SqlDataReader reader1 = sqlCommand.ExecuteReader())
+                        {
+                            reader1.Read();
+
+                            email = (string)reader1["email"];
+                            senha = (string)reader1["senha"];
+                            nome = (string)reader1["nome"];
+                            cpf = (string)reader1["cpf"];
+
+
+                        }
+                        string caminho = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                        string archivename = "relatorio_" + Nome.Text + ".pdf";
+                        string caminhoCompleto = Path.Combine(caminho, archivename);
+                        FileStream archivePDF = new FileStream(caminhoCompleto, FileMode.Create);
+                        Document doc = new Document(PageSize.A4);
+                        PdfWriter pdfwriter = PdfWriter.GetInstance(doc, archivePDF);
+
+                        string dados = "";
+
+                        Paragraph paragraph = new Paragraph(dados, new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 12, (int)System.Drawing.FontStyle.Bold));
+                        paragraph.Alignment = Element.ALIGN_CENTER;
+                        paragraph.Add("RELATÓRIO - MONDIAL");
+
+                        Paragraph paragraphuser = new Paragraph(dados, new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 12, (int)System.Drawing.FontStyle.Regular));
+                        paragraphuser.Alignment = Element.ALIGN_CENTER;
+                        paragraphuser.Add("Dados do Usuário:\n" + "Usuário: " + "\nSenha: " + senha + "\n CPF: " + cpf + "\nE-mail: " + email);
+
+
+                        doc.Open();
+                        doc.Add(paragraph);
+                        doc.Add(paragraphuser);
+
+                        doc.Close();
+
+                        MessageBox.Show(
+                        "O relatório foi criado com sucesso e armazenado na sua área de trabalho!",
+                        "MONDIAL™",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                        break;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(
+                    "O nome de usuário é inválido!",
+                    "MONDIAL™",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                    break;
+
+                }
+            }
+        }
     }
 }
+

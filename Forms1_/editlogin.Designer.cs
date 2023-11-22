@@ -35,15 +35,16 @@
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label3 = new System.Windows.Forms.Label();
             this.email = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.nome = new System.Windows.Forms.TextBox();
+            this.Nome = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.cpf = new System.Windows.Forms.MaskedTextBox();
+            this.imprimir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -111,13 +112,13 @@
             // 
             this.columnHeader5.Text = "Nome";
             // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "CPF";
-            // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "Email";
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "CPF";
             // 
             // label3
             // 
@@ -161,13 +162,13 @@
             this.label6.TabIndex = 22;
             this.label6.Text = "Nome";
             // 
-            // nome
+            // Nome
             // 
-            this.nome.Location = new System.Drawing.Point(116, 132);
-            this.nome.Name = "nome";
-            this.nome.Size = new System.Drawing.Size(100, 20);
-            this.nome.TabIndex = 21;
-            this.nome.TextChanged += new System.EventHandler(this.nome_TextChanged);
+            this.Nome.Location = new System.Drawing.Point(116, 132);
+            this.Nome.Name = "Nome";
+            this.Nome.Size = new System.Drawing.Size(100, 20);
+            this.Nome.TabIndex = 21;
+            this.Nome.TextChanged += new System.EventHandler(this.nome_TextChanged);
             // 
             // button1
             // 
@@ -189,18 +190,31 @@
             this.cpf.Size = new System.Drawing.Size(100, 20);
             this.cpf.TabIndex = 30;
             // 
+            // imprimir
+            // 
+            this.imprimir.BackColor = System.Drawing.Color.Transparent;
+            this.imprimir.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.imprimir.Location = new System.Drawing.Point(289, 340);
+            this.imprimir.Name = "imprimir";
+            this.imprimir.Size = new System.Drawing.Size(330, 23);
+            this.imprimir.TabIndex = 31;
+            this.imprimir.Text = "Imprimir";
+            this.imprimir.UseVisualStyleBackColor = false;
+            this.imprimir.Click += new System.EventHandler(this.imprimir_Click);
+            // 
             // editlogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.imprimir);
             this.Controls.Add(this.cpf);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.email);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.nome);
+            this.Controls.Add(this.Nome);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.listView1);
@@ -227,10 +241,11 @@
         private System.Windows.Forms.TextBox email;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox nome;
+        private System.Windows.Forms.TextBox Nome;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.MaskedTextBox cpf;
+        private System.Windows.Forms.Button imprimir;
     }
 }
