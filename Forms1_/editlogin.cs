@@ -6,6 +6,9 @@ using System.Windows.Forms;
 using System.IO;
 using System.Data.SqlClient;
 using InvestimentosMais;
+using System.Data.SqlClient;
+using System.Net;
+using System.Net.Mail;
 
 
 
@@ -145,52 +148,73 @@ namespace Forms1_
 
         private void imprimir_Click(object sender, EventArgs e)
         {
-            string connectionString = "DESKTOP-MBDNUGB\\SQLEXPRESS"; // Substitua pela sua string de conexão
+            // Configurações de conexão com o banco de dados
+            string connectionString = @"Data Source=DESKTOP-MBDNUGB\SQLEXPRESS;Initial Catalog=PR2;Integrated Security=True";
             string query = "SELECT * FROM login";
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
+            // Configurações do servidor SMTP para envio de e-mail
+            string smtpServer = "smtp.gmail.com";
+            int smtpPort = 587;
+            string smtpUsername = "muriloemateuscoutinho@gmail.com";
+            string smtpPassword = "Murilo2024@";
 
-                using (SqlCommand command = new SqlCommand(query, connection))
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        using (FileStream fs = new FileStream("relatorio.pdf", FileMode.Create))
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            using (Document doc = new Document())
+                            // Configuração do cliente SMTP
+                            using (SmtpClient smtpClient = new SmtpClient(smtpServer))
                             {
-                                using (PdfWriter pdfWriter = PdfWriter.GetInstance(doc, fs))
+                                smtpClient.Port = smtpPort;
+                                smtpClient.Credentials = new NetworkCredential(smtpUsername, smtpPassword);
+                                smtpClient.EnableSsl = true;
+
+                                // Configuração do e-mail
+                                using (MailMessage mailMessage = new MailMessage())
                                 {
-                                    doc.Open();
+                                    mailMessage.From = new MailAddress(smtpUsername);
+                                    mailMessage.Subject = "Dados da Tabela";
+                                    mailMessage.Body = "Aqui estão os dados da tabela:\n\n";
 
                                     while (reader.Read())
                                     {
+                                        // Adicione os dados da tabela ao corpo do e-mail
                                         string email = reader["email"].ToString();
                                         string senha = "***"; // Substitua pelo valor que você deseja exibir para senha
                                         string nome = reader["nome"].ToString();
                                         string cpf = reader["cpf"].ToString();
 
-                                        // Correção: Use o iTextSharp.text.Paragraph ao invés de System.Windows.Forms.Paragraph
-                                        iTextSharp.text.Paragraph paragraph = new iTextSharp.text.Paragraph();
-                                        paragraph.Add("Email: " + email + "\n");
-                                        paragraph.Add("Senha: " + senha + "\n");
-                                        paragraph.Add("Nome: " + nome + "\n");
-                                        paragraph.Add("CPF: " + cpf + "\n\n");
-
-                                        doc.Add(paragraph);
+                                        mailMessage.Body += $"Email: {email}\nSenha: {senha}\nNome: {nome}\nCPF: {cpf}\n\n";
                                     }
+
+                                    // Adicione o destinatário
+                                    mailMessage.To.Add("xxxsouza@gmail.com");
+
+                                    // Envie o e-mail
+                                    smtpClient.Send(mailMessage);
+
+                                    Console.WriteLine("E-mail enviado com sucesso.");
                                 }
                             }
                         }
                     }
                 }
             }
-
-            MessageBox.Show("PDF gerado com sucesso.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro: {ex.Message}");
+            }
         }
     }
 }
+
+
 
 
 
