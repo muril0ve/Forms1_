@@ -143,6 +143,11 @@ namespace Forms1_
         {
 
         }
+
+        private void confsenha_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

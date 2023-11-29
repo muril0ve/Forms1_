@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
+
 using System.Windows.Forms;
 using System.IO;
 using System.Data.SqlClient;
@@ -194,7 +193,7 @@ namespace Forms1_
                                     }
 
                                     // Adicione o destinatário
-                                    mailMessage.To.Add("xxxsouza@gmail.com");
+                                    mailMessage.To.Add("xxxsouzax@gmail.com");
 
                                     // Envie o e-mail
                                     smtpClient.Send(mailMessage);

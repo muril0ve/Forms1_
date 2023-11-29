@@ -117,6 +117,7 @@
             this.confsenha.PasswordChar = '*';
             this.confsenha.Size = new System.Drawing.Size(100, 20);
             this.confsenha.TabIndex = 15;
+            this.confsenha.TextChanged += new System.EventHandler(this.confsenha_TextChanged);
             // 
             // label2
             // 
