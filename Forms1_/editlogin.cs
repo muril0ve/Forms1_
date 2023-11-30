@@ -5,7 +5,6 @@ using System.Windows.Forms;
 using System.IO;
 using System.Data.SqlClient;
 using InvestimentosMais;
-using System.Data.SqlClient;
 using System.Net;
 using System.Net.Mail;
 
@@ -97,7 +96,6 @@ namespace Forms1_
             UserDAO nomeDoObj = new UserDAO();
             nomeDoObj.DeleteUser(Id);
             email.Clear();
-
             cpf.Clear();
             Nome.Clear();
 
@@ -155,7 +153,7 @@ namespace Forms1_
             string smtpServer = "smtp.gmail.com";
             int smtpPort = 587;
             string smtpUsername = "muriloemateuscoutinho@gmail.com";
-            string smtpPassword = "Murilo2024@";
+            string smtpPassword = "murilo2024@";
 
             try
             {
@@ -186,10 +184,10 @@ namespace Forms1_
                                         // Adicione os dados da tabela ao corpo do e-mail
                                         string email = reader["email"].ToString();
                                         string senha = "***"; // Substitua pelo valor que você deseja exibir para senha
-                                        string nome = reader["nome"].ToString();
+                                        string Nome = reader["nome"].ToString();
                                         string cpf = reader["cpf"].ToString();
 
-                                        mailMessage.Body += $"Email: {email}\nSenha: {senha}\nNome: {nome}\nCPF: {cpf}\n\n";
+                                        mailMessage.Body += $"Email: {email}\nSenha: {senha}\nNome: {Nome}\nCPF: {cpf}\n\n";
                                     }
 
                                     // Adicione o destinatário
