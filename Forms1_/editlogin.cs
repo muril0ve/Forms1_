@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 using System.Windows.Forms;
 using System.IO;
 using System.Data.SqlClient;
@@ -145,68 +146,53 @@ namespace Forms1_
 
         private void imprimir_Click(object sender, EventArgs e)
         {
-            // Configurações de conexão com o banco de dados
-            string connectionString = @"Data Source=DESKTOP-MBDNUGB\SQLEXPRESS;Initial Catalog=PR2;Integrated Security=True";
-            string query = "SELECT * FROM login";
+            //aqui temos o botao de gera o pdf a partir das colunas do nosso banco de dados 
+            // Conexão com o banco de dados SQL Server
+            string stringConnection = @"Data Source="
+                     + Environment.MachineName +
+                     @"\SQLEXPRESS;Initial Catalog=" +
+                     "PR2" + ";Integrated Security=true";
+            SqlConnection connection = new SqlConnection(stringConnection);
+            connection.Open();
 
-            // Configurações do servidor SMTP para envio de e-mail
-            string smtpServer = "smtp.gmail.com";
-            int smtpPort = 587;
-            string smtpUsername = "muriloemateuscoutinho@gmail.com";
-            string smtpPassword = "murilo2024@";
+            // Consulta SQL para recuperar as informações
+            string query = "SELECT email, nome, cpf FROM login";
+            SqlCommand command = new SqlCommand(query, connection);
+            SqlDataReader reader = command.ExecuteReader();
 
-            try
+            // Cria um novo documento PDF
+            Document document = new Document();
+            PdfWriter.GetInstance(document, new FileStream("arquivo.pdf", FileMode.Create));
+            document.Open();
+
+            // Cria uma nova tabela e adiciona as informações recuperadas
+            PdfPTable table = new PdfPTable(3);
+            table.AddCell("Email");
+           
+            table.AddCell("Nome");
+            table.AddCell("Cpf");
+            
+
+            while (reader.Read())
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            // Configuração do cliente SMTP
-                            using (SmtpClient smtpClient = new SmtpClient(smtpServer))
-                            {
-                                smtpClient.Port = smtpPort;
-                                smtpClient.Credentials = new NetworkCredential(smtpUsername, smtpPassword);
-                                smtpClient.EnableSsl = true;
-
-                                // Configuração do e-mail
-                                using (MailMessage mailMessage = new MailMessage())
-                                {
-                                    mailMessage.From = new MailAddress(smtpUsername);
-                                    mailMessage.Subject = "Dados da Tabela";
-                                    mailMessage.Body = "Aqui estão os dados da tabela:\n\n";
-
-                                    while (reader.Read())
-                                    {
-                                        // Adicione os dados da tabela ao corpo do e-mail
-                                        string email = reader["email"].ToString();
-                                        string senha = "***"; // Substitua pelo valor que você deseja exibir para senha
-                                        string Nome = reader["nome"].ToString();
-                                        string cpf = reader["cpf"].ToString();
-
-                                        mailMessage.Body += $"Email: {email}\nSenha: {senha}\nNome: {Nome}\nCPF: {cpf}\n\n";
-                                    }
-
-                                    // Adicione o destinatário
-                                    mailMessage.To.Add("xxxsouzax@gmail.com");
-
-                                    // Envie o e-mail
-                                    smtpClient.Send(mailMessage);
-
-                                    Console.WriteLine("E-mail enviado com sucesso.");
-                                }
-                            }
-                        }
-                    }
-                }
+                table.AddCell(reader["Email"].ToString());
+               
+                table.AddCell(reader["Nome"].ToString());
+                table.AddCell(reader["Cpf"].ToString());
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Erro: {ex.Message}");
-            }
+
+            // Adiciona a tabela ao documento
+            document.Add(table);
+
+            // Fecha o documento e a conexão com o banco de dados
+            document.Close();
+            connection.Close();
+
+            MessageBox.Show(
+            "RELATORIO GERADO COM SUCESSO",
+            "ATENÇÃO",
+            MessageBoxButtons.OK,
+            MessageBoxIcon.Information);
         }
     }
 }
