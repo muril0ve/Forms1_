@@ -193,6 +193,8 @@ namespace Forms1_
             "ATENÇÃO",
             MessageBoxButtons.OK,
             MessageBoxIcon.Information);
+            Close();
+
         }
     }
 }
